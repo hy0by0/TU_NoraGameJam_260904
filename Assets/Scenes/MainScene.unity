@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9676f4b1d382f419df0cc99aa85e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMusicDebugView
-  showDebugDisplay: 0
+  showDebugDisplay: 1
   debugRoot: {fileID: 922833609}
   musicController: {fileID: 251235481}
   debugText: {fileID: 812048315}
@@ -1222,6 +1222,144 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: "1\u756A\u5F8C\u30A4\u30F3\u30BF\u30FC\u30D0\u30EB\u3078\u9077\u79FB"
+    timing:
+      bar: 32
+      beat: 1
+      subdivision: 1
+    isEnabled: 1
+    executionOrder: 20
+    executeOnce: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1491851649}
+          m_TargetAssemblyTypeName: BackgroundTransitionController, Assembly-CSharp
+          m_MethodName: SwitchBackgroundCrossFade
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: "2\u756A\u30B9\u30C6\u30FC\u30B8\u3078\u9077\u79FB"
+    timing:
+      bar: 36
+      beat: 1
+      subdivision: 1
+    isEnabled: 1
+    executionOrder: 20
+    executeOnce: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1491851649}
+          m_TargetAssemblyTypeName: BackgroundTransitionController, Assembly-CSharp
+          m_MethodName: SwitchBackgroundCrossFade
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: "2\u756A\u5F8C\u30A4\u30F3\u30BF\u30FC\u30D0\u30EB\u3078\u9077\u79FB"
+    timing:
+      bar: 84
+      beat: 1
+      subdivision: 1
+    isEnabled: 1
+    executionOrder: 20
+    executeOnce: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1491851649}
+          m_TargetAssemblyTypeName: BackgroundTransitionController, Assembly-CSharp
+          m_MethodName: SwitchBackgroundCrossFade
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: "\u30E9\u30B9\u30C8\u30B9\u30C6\u30FC\u30B8\u3078\u9077\u79FB"
+    timing:
+      bar: 100
+      beat: 1
+      subdivision: 1
+    isEnabled: 1
+    executionOrder: 20
+    executeOnce: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1491851649}
+          m_TargetAssemblyTypeName: BackgroundTransitionController, Assembly-CSharp
+          m_MethodName: SwitchBackgroundCrossFade
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: "\u30AF\u30EC\u30B8\u30C3\u30C8\u3078\u9077\u79FB"
+    timing:
+      bar: 117
+      beat: 1
+      subdivision: 1
+    isEnabled: 1
+    executionOrder: 20
+    executeOnce: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1491851649}
+          m_TargetAssemblyTypeName: BackgroundTransitionController, Assembly-CSharp
+          m_MethodName: SwitchBackgroundCrossFade
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventName: "\u30E9\u30B9\u30C8\u30B9\u30C1\u30EB\u3078\u9077\u79FB"
+    timing:
+      bar: 123
+      beat: 1
+      subdivision: 1
+    isEnabled: 1
+    executionOrder: 20
+    executeOnce: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1491851649}
+          m_TargetAssemblyTypeName: BackgroundTransitionController, Assembly-CSharp
+          m_MethodName: SwitchBackgroundCrossFade
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -4670,6 +4808,12 @@ MonoBehaviour:
   - backgroundName: "\u80CC\u666F3"
     fixedBackgroundSprite: {fileID: 21300000, guid: e4258a5b90457e7428e362740f8bfc70, type: 3}
     parallaxSetIndex: 2
+  - backgroundName: "\u30A4\u30F3\u30BF\u30FC\u30D0\u30EB"
+    fixedBackgroundSprite: {fileID: 21300000, guid: 9a33d443cece4e945a30ba1819e5f305, type: 3}
+    parallaxSetIndex: 3
+  - backgroundName: "\u30E9\u30B9\u30C8\u30B9\u30C1\u30EB1"
+    fixedBackgroundSprite: {fileID: 21300000, guid: 9a33d443cece4e945a30ba1819e5f305, type: 3}
+    parallaxSetIndex: 4
   initialBackgroundSetIndex: 0
 --- !u!114 &1491851650
 MonoBehaviour:
@@ -6080,6 +6224,10 @@ PrefabInstance:
     - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
       propertyPath: inputStartBeatTiming.bar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
+      propertyPath: entranceStartBeatTiming.bar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
       propertyPath: referenceArrivalBeatTiming.bar
