@@ -1,0 +1,91 @@
+{
+  "ExportTimestamp": "2026-09-07 13:44:06",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "MainScene",
+    "nodeCount": 5,
+    "maxDepth": 1
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "MainScene",
+      "stats": {
+        "rootCount": 1,
+        "nodeCount": 5,
+        "maxDepth": 1
+      },
+      "roots": [
+        {
+          "name": "PlayerRoot",
+          "isActive": true,
+          "components": [
+            "Transform",
+            "Rigidbody2D",
+            "PlayerController",
+            "CinemachineBrain",
+            "PlayerEntranceController"
+          ],
+          "siblingIndex": 4,
+          "tag": "Player",
+          "layer": 0,
+          "path": "PlayerRoot",
+          "children": [
+            {
+              "name": "PlayerBeatAnchor",
+              "isActive": true,
+              "components": [
+                "Transform"
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "PlayerRoot/PlayerBeatAnchor",
+              "children": []
+            },
+            {
+              "name": "VisualRoot",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "SpriteRenderer",
+                "Animator"
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "PlayerRoot/VisualRoot",
+              "children": []
+            },
+            {
+              "name": "CollisionRoot",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "BoxCollider2D"
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "PlayerRoot/CollisionRoot",
+              "children": []
+            },
+            {
+              "name": "AttackArea",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "BoxCollider2D",
+                "AttackHitBox"
+              ],
+              "siblingIndex": 3,
+              "tag": "Attack",
+              "layer": 0,
+              "path": "PlayerRoot/AttackArea",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

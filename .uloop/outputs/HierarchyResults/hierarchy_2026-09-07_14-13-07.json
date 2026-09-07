@@ -1,0 +1,102 @@
+{
+  "ExportTimestamp": "2026-09-07 14:13:07",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "MainScene",
+    "nodeCount": 6,
+    "maxDepth": 1
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "MainScene",
+      "stats": {
+        "rootCount": 1,
+        "nodeCount": 6,
+        "maxDepth": 1
+      },
+      "roots": [
+        {
+          "name": "CameraSystem",
+          "isActive": true,
+          "components": [
+            "Transform",
+            "GameCameraController"
+          ],
+          "siblingIndex": 13,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "CameraSystem",
+          "children": [
+            {
+              "name": "CameraFollowTarget",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "CameraFollowTarget"
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/CameraFollowTarget",
+              "children": []
+            },
+            {
+              "name": "IntroCamera",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "CinemachineCamera"
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/IntroCamera",
+              "children": []
+            },
+            {
+              "name": "GameplayCamera",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "CinemachineCamera",
+                "CinemachinePositionComposer"
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/GameplayCamera",
+              "children": []
+            },
+            {
+              "name": "GameOverCamera",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "CinemachineCamera",
+                "CinemachinePositionComposer"
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/GameOverCamera",
+              "children": []
+            },
+            {
+              "name": "ResultCamera",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "CinemachineCamera"
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/ResultCamera",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 32c94f34c43b9b04ab9ebf3dad1502d1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3854239232107137326
+    second: effect_slash_02_0
+  - first:
+      213: 8561970336583484899
+    second: effect_slash_02_1
+  - first:
+      213: -5629978468949053338
+    second: effect_slash_02_2
+  - first:
+      213: -2997179279008128965
+    second: effect_slash_02_3
+  - first:
+      213: 4266250308318725102
+    second: effect_slash_02_4
+  - first:
+      213: 3179265397888755372
+    second: effect_slash_02_5
+  - first:
+      213: -8361209979241122313
+    second: effect_slash_02_6
+  - first:
+      213: -6947279341352639005
+    second: effect_slash_02_7
+  - first:
+      213: 1219768465842437026
+    second: effect_slash_02_8
+  - first:
+      213: -6539760111919919544
+    second: effect_slash_02_9
+  - first:
+      213: 6193942816423509842
+    second: effect_slash_02_10
+  - first:
+      213: -2950285115594804719
+    second: effect_slash_02_11
+  - first:
+      213: 5189546918984181454
+    second: effect_slash_02_12
+  - first:
+      213: -6647647113614033643
+    second: effect_slash_02_13
+  - first:
+      213: -2155109056289220887
+    second: effect_slash_02_14
+  - first:
+      213: 58779997395553039
+    second: effect_slash_02_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: effect_slash_02_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 677
+        width: 172
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29ce1539220d7530800000000000000
+      internalID: 3854239232107137326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 100
+        width: 652
+        height: 793
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e58d7968aa32d670800000000000000
+      internalID: 8561970336583484899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_2
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 518
+        width: 434
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660b131596c4ed1b0800000000000000
+      internalID: -5629978468949053338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_3
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 607
+        width: 293
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b302f825351e766d0800000000000000
+      internalID: -2997179279008128965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_4
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 36
+        width: 503
+        height: 886
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee30d364d04c43b30800000000000000
+      internalID: 4266250308318725102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_5
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 704
+        width: 208
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6a9dfe8050f1c20800000000000000
+      internalID: 3179265397888755372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_6
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 502
+        width: 43
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5b1eec2d307fb80800000000000000
+      internalID: -8361209979241122313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_7
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 69
+        width: 505
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5244f4f3e469f90800000000000000
+      internalID: -6947279341352639005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_8
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 463
+        width: 52
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abf2c205fc7de010800000000000000
+      internalID: 1219768465842437026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_9
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 86
+        width: 124
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e8ebcc3da1e35a0800000000000000
+      internalID: -6539760111919919544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_10
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 448
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f7104bc2e45f550800000000000000
+      internalID: 6193942816423509842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_11
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 113
+        width: 141
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11279d2915b7e07d0800000000000000
+      internalID: -2950285115594804719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_12
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 77
+        width: 211
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6664b6d69f40840800000000000000
+      internalID: 5189546918984181454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_13
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 351
+        width: 54
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d72e0cb20deb3a0800000000000000
+      internalID: -6647647113614033643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_14
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 68
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e657a74bb38712e0800000000000000
+      internalID: -2155109056289220887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_slash_02_15
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 65
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b09a0a814d0d000800000000000000
+      internalID: 58779997395553039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      effect_slash_02_0: 3854239232107137326
+      effect_slash_02_1: 8561970336583484899
+      effect_slash_02_10: 6193942816423509842
+      effect_slash_02_11: -2950285115594804719
+      effect_slash_02_12: 5189546918984181454
+      effect_slash_02_13: -6647647113614033643
+      effect_slash_02_14: -2155109056289220887
+      effect_slash_02_15: 58779997395553039
+      effect_slash_02_2: -5629978468949053338
+      effect_slash_02_3: -2997179279008128965
+      effect_slash_02_4: 4266250308318725102
+      effect_slash_02_5: 3179265397888755372
+      effect_slash_02_6: -8361209979241122313
+      effect_slash_02_7: -6947279341352639005
+      effect_slash_02_8: 1219768465842437026
+      effect_slash_02_9: -6539760111919919544
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

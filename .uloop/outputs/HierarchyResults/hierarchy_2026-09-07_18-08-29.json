@@ -1,0 +1,296 @@
+{
+  "ExportTimestamp": "2026-09-07 18:08:29",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "MainScene",
+    "nodeCount": 19,
+    "maxDepth": 3
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "MainScene",
+      "stats": {
+        "rootCount": 1,
+        "nodeCount": 19,
+        "maxDepth": 3
+      },
+      "componentsLut": [
+        "RectTransform",
+        "Canvas",
+        "CanvasScaler",
+        "BackgroundTransitionController",
+        "CanvasRenderer",
+        "Image",
+        "CanvasGroup",
+        "ParallaxController"
+      ],
+      "roots": [
+        {
+          "name": "BackgroundSystems",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "siblingIndex": 14,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BackgroundSystems",
+          "children": [
+            {
+              "name": "FixedBackgroundRoot",
+              "isActive": true,
+              "componentsIdx": [
+                0
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/FixedBackgroundRoot",
+              "children": [
+                {
+                  "name": "TitleReplicaBackground",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    4,
+                    5
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/TitleReplicaBackground",
+                  "children": []
+                },
+                {
+                  "name": "FixedBackgroundCurrent",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    4,
+                    5
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/FixedBackgroundCurrent",
+                  "children": []
+                },
+                {
+                  "name": "FixedBackgroundNext",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    4,
+                    5
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/FixedBackgroundNext",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ParallaxBackgroundRoot",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                6,
+                7
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/ParallaxBackgroundRoot",
+              "children": [
+                {
+                  "name": "FarLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer",
+                  "children": [
+                    {
+                      "name": "FarLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "FarLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "FarLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "MiddleLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer",
+                  "children": [
+                    {
+                      "name": "MiddleLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "MiddleLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "MiddleLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "NearLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer",
+                  "children": [
+                    {
+                      "name": "NearLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "NearLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "NearLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        0,
+                        4,
+                        5
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BackgroundTransitionOverlay",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                4,
+                5
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/BackgroundTransitionOverlay",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
