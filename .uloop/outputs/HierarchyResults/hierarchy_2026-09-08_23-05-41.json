@@ -1,0 +1,2152 @@
+{
+  "ExportTimestamp": "2026-09-08 23:05:41",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "MainScene",
+    "nodeCount": 140,
+    "maxDepth": 3
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "MainScene",
+      "stats": {
+        "rootCount": 19,
+        "nodeCount": 140,
+        "maxDepth": 3
+      },
+      "componentsLut": [
+        "Transform",
+        "Camera",
+        "AudioListener",
+        "UniversalAdditionalCameraData",
+        "CinemachineBrain",
+        "Light2D",
+        "RectTransform",
+        "Canvas",
+        "CanvasScaler",
+        "GraphicRaycaster",
+        "CanvasGroup",
+        "UITransitionController",
+        "HorizontalLayoutGroup",
+        "PlayerLifeView",
+        "CanvasRenderer",
+        "Image",
+        "Text",
+        "ScoreUI",
+        "Animator",
+        "ImageAnimationUIController",
+        "Button",
+        "RetryButton",
+        "EventSystem",
+        "InputSystemUIInputModule",
+        "Rigidbody2D",
+        "PlayerController",
+        "PlayerEntranceController",
+        "PlayerFormController",
+        "CharacterColorController",
+        "SpriteRenderer",
+        "PlayerAnimationController",
+        "PlayerSlashEffect",
+        "BoxCollider2D",
+        "AttackHitBox",
+        "PlayerBeamAttack",
+        "BeatGrid",
+        "Volume",
+        "AudioManager",
+        "GameMusicController",
+        "GameMusicDebugView",
+        "SongSequenceController",
+        "SongSequenceDebugTarget",
+        "StageProgressController",
+        "AudioSource",
+        "GameManager",
+        "GameFlowController",
+        "Enemy",
+        "EnemyMovement",
+        "Item",
+        "GameCameraController",
+        "CameraFollowTarget",
+        "CinemachineCamera",
+        "CinemachinePositionComposer",
+        "BackgroundTransitionController",
+        "ParallaxController",
+        "FinalItemAutoCollector",
+        "FinalEventController",
+        "PostProcessTransitionController"
+      ],
+      "roots": [
+        {
+          "name": "Main Camera",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "siblingIndex": 0,
+          "tag": "MainCamera",
+          "layer": 0,
+          "path": "Main Camera",
+          "children": []
+        },
+        {
+          "name": "Global Light 2D",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            5
+          ],
+          "siblingIndex": 1,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "Global Light 2D",
+          "children": []
+        },
+        {
+          "name": "Canvas",
+          "isActive": true,
+          "componentsIdx": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "siblingIndex": 2,
+          "tag": "Untagged",
+          "layer": 5,
+          "path": "Canvas",
+          "children": [
+            {
+              "name": "HUDRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                10,
+                11
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/HUDRoot",
+              "children": [
+                {
+                  "name": "LifeIconsRoot",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    12,
+                    13
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/HUDRoot/LifeIconsRoot",
+                  "children": [
+                    {
+                      "name": "Life",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/LifeIconsRoot/Life",
+                      "children": []
+                    },
+                    {
+                      "name": "Life (1)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/LifeIconsRoot/Life (1)",
+                      "children": []
+                    },
+                    {
+                      "name": "Life (2)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/LifeIconsRoot/Life (2)",
+                      "children": []
+                    },
+                    {
+                      "name": "Life (3)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 3,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/LifeIconsRoot/Life (3)",
+                      "children": []
+                    },
+                    {
+                      "name": "Life (4)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 4,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/LifeIconsRoot/Life (4)",
+                      "children": []
+                    },
+                    {
+                      "name": "Life (5)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 5,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/LifeIconsRoot/Life (5)",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "ScoreText",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    16,
+                    17
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/HUDRoot/ScoreText",
+                  "children": []
+                },
+                {
+                  "name": "MusicDebugOverlay",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/HUDRoot/MusicDebugOverlay",
+                  "children": [
+                    {
+                      "name": "DebugText",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        16
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/HUDRoot/MusicDebugOverlay/DebugText",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IntroOverlayRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                10,
+                11
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/IntroOverlayRoot",
+              "children": [
+                {
+                  "name": "TopBlackBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/IntroOverlayRoot/TopBlackBar",
+                  "children": []
+                },
+                {
+                  "name": "BottomBlackBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/IntroOverlayRoot/BottomBlackBar",
+                  "children": []
+                },
+                {
+                  "name": "LogoImage",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15,
+                    10,
+                    18,
+                    19
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/IntroOverlayRoot/LogoImage",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "EffectUIRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                10,
+                11
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/EffectUIRoot",
+              "children": [
+                {
+                  "name": "SongSequenceTestDisplay",
+                  "isActive": false,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/EffectUIRoot/SongSequenceTestDisplay",
+                  "children": [
+                    {
+                      "name": "EventMessageText",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        16
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/EffectUIRoot/SongSequenceTestDisplay/EventMessageText",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "WhiteCurtain",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/EffectUIRoot/WhiteCurtain",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "GameOverRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                10,
+                11
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/GameOverRoot",
+              "children": [
+                {
+                  "name": "GameOverBackdrop",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/GameOverRoot/GameOverBackdrop",
+                  "children": []
+                },
+                {
+                  "name": "RetryButton",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15,
+                    20,
+                    21
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/GameOverRoot/RetryButton",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ResultRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                10,
+                11
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/ResultRoot",
+              "children": [
+                {
+                  "name": "ResultBackdrop",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/ResultRoot/ResultBackdrop",
+                  "children": []
+                },
+                {
+                  "name": "RetryButton",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15,
+                    20,
+                    21
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/ResultRoot/RetryButton",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EventSystem",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            22,
+            23
+          ],
+          "siblingIndex": 3,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "EventSystem",
+          "children": []
+        },
+        {
+          "name": "PlayerRoot",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "siblingIndex": 4,
+          "tag": "Player",
+          "layer": 0,
+          "path": "PlayerRoot",
+          "children": [
+            {
+              "name": "PlayerBeatAnchor",
+              "isActive": true,
+              "componentsIdx": [
+                0
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "PlayerRoot/PlayerBeatAnchor",
+              "children": []
+            },
+            {
+              "name": "VisualRoot",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                18,
+                30
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "PlayerRoot/VisualRoot",
+              "children": [
+                {
+                  "name": "SlashEffect",
+                  "isActive": false,
+                  "componentsIdx": [
+                    0,
+                    29,
+                    18,
+                    31
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "PlayerRoot/VisualRoot/SlashEffect",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "CollisionRoot",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                32
+              ],
+              "siblingIndex": 2,
+              "tag": "Player",
+              "layer": 0,
+              "path": "PlayerRoot/CollisionRoot",
+              "children": []
+            },
+            {
+              "name": "AttackArea",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                32,
+                33
+              ],
+              "siblingIndex": 3,
+              "tag": "Attack",
+              "layer": 0,
+              "path": "PlayerRoot/AttackArea",
+              "children": []
+            },
+            {
+              "name": "BeamRoot",
+              "isActive": false,
+              "componentsIdx": [
+                0,
+                34
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "PlayerRoot/BeamRoot",
+              "children": [
+                {
+                  "name": "BeamVisual",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    29,
+                    32,
+                    33
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "PlayerRoot/BeamRoot/BeamVisual",
+                  "children": []
+                },
+                {
+                  "name": "MuzzleFlash",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    29
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "PlayerRoot/BeamRoot/MuzzleFlash",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "BeatGrid",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            35
+          ],
+          "siblingIndex": 5,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BeatGrid",
+          "children": []
+        },
+        {
+          "name": "NormalVolume",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            36
+          ],
+          "siblingIndex": 6,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "NormalVolume",
+          "children": []
+        },
+        {
+          "name": "AudioSystem",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42
+          ],
+          "siblingIndex": 7,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "AudioSystem",
+          "children": [
+            {
+              "name": "BGMSource",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                43
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "AudioSystem/BGMSource",
+              "children": []
+            },
+            {
+              "name": "SESource",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                43
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "AudioSystem/SESource",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "GameManager",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            44,
+            45
+          ],
+          "siblingIndex": 8,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "GameManager",
+          "children": []
+        },
+        {
+          "name": "Enemies",
+          "isActive": true,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 9,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "Enemies",
+          "children": [
+            {
+              "name": "Enemy_normal (5)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 0,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (5)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (6)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 1,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (6)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (7)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 2,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (7)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (8)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 3,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (8)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (9)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 4,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (9)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (10)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 5,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (10)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (11)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 6,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (11)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (12)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 7,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (12)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (23)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 8,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (23)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (13)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 9,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (13)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (24)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 10,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (24)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (14)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 11,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (14)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (25)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 12,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (25)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (15)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 13,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (15)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (26)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 14,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (26)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (16)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 15,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (16)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (27)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 16,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (27)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (17)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 17,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (17)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (18)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 18,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (18)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (19)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 19,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (19)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (20)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 20,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (20)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (21)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 21,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (21)",
+              "children": []
+            },
+            {
+              "name": "Enemy_normal (22)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                24,
+                46,
+                47
+              ],
+              "siblingIndex": 22,
+              "tag": "Enemy",
+              "layer": 0,
+              "path": "Enemies/Enemy_normal (22)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Items",
+          "isActive": true,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 10,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "Items",
+          "children": [
+            {
+              "name": "item_Score (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 0,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (1)",
+              "children": []
+            },
+            {
+              "name": "item_Score (2)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 1,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (2)",
+              "children": []
+            },
+            {
+              "name": "item_Score (3)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 2,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (3)",
+              "children": []
+            },
+            {
+              "name": "item_Score (4)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 3,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (4)",
+              "children": []
+            },
+            {
+              "name": "item_Score (5)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 4,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (5)",
+              "children": []
+            },
+            {
+              "name": "item_Score (6)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 5,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (6)",
+              "children": []
+            },
+            {
+              "name": "item_Score (7)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 6,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (7)",
+              "children": []
+            },
+            {
+              "name": "item_Score (8)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 7,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (8)",
+              "children": []
+            },
+            {
+              "name": "item_Score (9)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 8,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (9)",
+              "children": []
+            },
+            {
+              "name": "item_Score (10)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 9,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (10)",
+              "children": []
+            },
+            {
+              "name": "item_Score (11)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 10,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (11)",
+              "children": []
+            },
+            {
+              "name": "item_Score (12)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 11,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (12)",
+              "children": []
+            },
+            {
+              "name": "item_Score (13)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 12,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (13)",
+              "children": []
+            },
+            {
+              "name": "item_Score (14)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 13,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (14)",
+              "children": []
+            },
+            {
+              "name": "item_Score (15)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 14,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (15)",
+              "children": []
+            },
+            {
+              "name": "item_Score (16)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 15,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (16)",
+              "children": []
+            },
+            {
+              "name": "item_Score (17)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 16,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (17)",
+              "children": []
+            },
+            {
+              "name": "item_Score (18)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 17,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (18)",
+              "children": []
+            },
+            {
+              "name": "item_Score (19)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 18,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (19)",
+              "children": []
+            },
+            {
+              "name": "item_Score (20)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 19,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (20)",
+              "children": []
+            },
+            {
+              "name": "item_Score (21)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 20,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_Score (21)",
+              "children": []
+            },
+            {
+              "name": "item_HealScore",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 21,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_HealScore",
+              "children": []
+            },
+            {
+              "name": "item_HealScore (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 22,
+              "tag": "Item",
+              "layer": 0,
+              "path": "Items/item_HealScore (1)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "CameraSystem",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            49
+          ],
+          "siblingIndex": 11,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "CameraSystem",
+          "children": [
+            {
+              "name": "CameraFollowTarget",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                50
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/CameraFollowTarget",
+              "children": []
+            },
+            {
+              "name": "IntroCamera",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                51
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/IntroCamera",
+              "children": []
+            },
+            {
+              "name": "GameplayCamera",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                51,
+                52
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/GameplayCamera",
+              "children": []
+            },
+            {
+              "name": "GameOverCamera",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                51,
+                52
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/GameOverCamera",
+              "children": []
+            },
+            {
+              "name": "ResultCamera",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                51
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "CameraSystem/ResultCamera",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "BackGrounds",
+          "isActive": true,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 12,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BackGrounds",
+          "children": [
+            {
+              "name": "Square",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackGrounds/Square",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "BackgroundSystems",
+          "isActive": true,
+          "componentsIdx": [
+            6,
+            7,
+            8,
+            53
+          ],
+          "siblingIndex": 13,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BackgroundSystems",
+          "children": [
+            {
+              "name": "FixedBackgroundRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/FixedBackgroundRoot",
+              "children": [
+                {
+                  "name": "TitleReplicaBackground",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/TitleReplicaBackground",
+                  "children": []
+                },
+                {
+                  "name": "FixedBackgroundCurrent",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/FixedBackgroundCurrent",
+                  "children": []
+                },
+                {
+                  "name": "FixedBackgroundNext",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/FixedBackgroundNext",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ParallaxBackgroundRoot",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                10,
+                54
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/ParallaxBackgroundRoot",
+              "children": [
+                {
+                  "name": "FarLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer",
+                  "children": [
+                    {
+                      "name": "FarLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "FarLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "FarLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "MiddleLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer",
+                  "children": [
+                    {
+                      "name": "MiddleLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "MiddleLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "MiddleLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "NearLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer",
+                  "children": [
+                    {
+                      "name": "NearLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "NearLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "NearLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        6,
+                        14,
+                        15
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BackgroundTransitionOverlay",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                14,
+                15
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/BackgroundTransitionOverlay",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "PowerUps",
+          "isActive": true,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 14,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "PowerUps",
+          "children": [
+            {
+              "name": "item_Gear_thief",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 0,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_thief",
+              "children": []
+            },
+            {
+              "name": "item_Gear_magic",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 1,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_magic",
+              "children": []
+            },
+            {
+              "name": "item_Gear_magic (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 2,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_magic (1)",
+              "children": []
+            },
+            {
+              "name": "item_Gear_thief (3)",
+              "isActive": false,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 3,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_thief (3)",
+              "children": []
+            },
+            {
+              "name": "item_Gear_thief (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 4,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_thief (1)",
+              "children": []
+            },
+            {
+              "name": "item_Gear_thief (2)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48
+              ],
+              "siblingIndex": 5,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_thief (2)",
+              "children": []
+            },
+            {
+              "name": "item_Gear_LastAttack",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                32,
+                48,
+                55
+              ],
+              "siblingIndex": 6,
+              "tag": "Item",
+              "layer": 0,
+              "path": "PowerUps/item_Gear_LastAttack",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "FinalEventRoot",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            56
+          ],
+          "siblingIndex": 15,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "FinalEventRoot",
+          "children": [
+            {
+              "name": "BossRoot",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/BossRoot",
+              "children": []
+            },
+            {
+              "name": "FinalBeam",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/FinalBeam",
+              "children": []
+            },
+            {
+              "name": "ChargeFlash",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/ChargeFlash",
+              "children": []
+            },
+            {
+              "name": "ImpactFlash",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/ImpactFlash",
+              "children": []
+            },
+            {
+              "name": "EndingCanvas",
+              "isActive": true,
+              "componentsIdx": [
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/EndingCanvas",
+              "children": [
+                {
+                  "name": "EventBackground",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EventBackground",
+                  "children": []
+                },
+                {
+                  "name": "EventStill",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EventStill",
+                  "children": []
+                },
+                {
+                  "name": "EndingStill",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EndingStill",
+                  "children": []
+                },
+                {
+                  "name": "EventText",
+                  "isActive": true,
+                  "componentsIdx": [
+                    6,
+                    14,
+                    16
+                  ],
+                  "siblingIndex": 3,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EventText",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "BrightAdaptationVolume",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            36
+          ],
+          "siblingIndex": 16,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BrightAdaptationVolume",
+          "children": []
+        },
+        {
+          "name": "WhiteoutVolume",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            36
+          ],
+          "siblingIndex": 17,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "WhiteoutVolume",
+          "children": []
+        },
+        {
+          "name": "BeatEventControllers",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            57
+          ],
+          "siblingIndex": 18,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BeatEventControllers",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
