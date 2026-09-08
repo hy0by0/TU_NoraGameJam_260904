@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BeamAnimations
+  m_Controller: {fileID: 9100000, guid: efd4c2bff0746ec448bec5f8e941ac34, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: cfe1e30caa9995e47ae272f38c9a09f1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 79a0fe3d3eb57a04986bfef54b151f65, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f8ac965dcc97153488fd78a4c6599be8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e332186671bb18b46b37044dd41a9679, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0a77fe0ddc10af74a9f271f050ac2cf6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f406886ea52285f46b2fa2781caddc77, type: 2}

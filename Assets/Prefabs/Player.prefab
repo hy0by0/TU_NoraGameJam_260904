@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7528353673440687329}
   - component: {fileID: 3073152979483321428}
   - component: {fileID: 8855649096178966830}
+  - component: {fileID: 4984378620378416682}
   m_Layer: 0
   m_Name: VisualRoot
   m_TagString: Untagged
@@ -114,6 +115,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4984378620378416682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097372922172182132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec00982f4fe68d1409ddb5f3234878f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
+  playerAnimator: {fileID: 8855649096178966830}
+  spriteRenderer: {fileID: 3073152979483321428}
+  normalState: PlayerMoveAnimation
+  attackState: PlayerAttackAnimation
+  damageState: PlayerDamageAnimation
+  normalClip: PlayerMoveAnimation
+  attackClip: PlayerAttackAnimation
+  damageClip: PlayerDamageAnimation
 --- !u!1 &1423028098460152163
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +318,7 @@ GameObject:
   - component: {fileID: 693385843058257878}
   - component: {fileID: -7500714295435942384}
   - component: {fileID: 763829969187017947}
+  - component: {fileID: 568753044265051807}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -362,16 +384,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff90677638c28840b4c7d6877ebffc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 10
+  formController: {fileID: 568753044265051807}
+  animationController: {fileID: 4984378620378416682}
   musicConductor: {fileID: 0}
   entranceController: {fileID: 763829969187017947}
   attackDurationBeats: 0.5
   attackIntervalBeats: 0
   attackHitBox: {fileID: 6264908402657906076}
-  attackRangeCollider: {fileID: 3547946102829995045}
-  PlayerAttackAnimation: {fileID: 7400000, guid: f8ac965dcc97153488fd78a4c6599be8, type: 2}
-  playerDamageAnimation: {fileID: 7400000, guid: 0a77fe0ddc10af74a9f271f050ac2cf6, type: 2}
-  playerAnimator: {fileID: 8855649096178966830}
   maxLife: 6
   currentLife: 6
   invincibleTimeBeats: 1
@@ -380,18 +399,10 @@ MonoBehaviour:
   multiKillThreshold: 2
   singleKillMultiplier: 1
   multiKillMultiplier: 2
-  normalAnime: PlayerMoveAnimation
-  normalAtackAnime: PlayerAttackAnimation
-  normalDamageAnime: PlayerDamageAnimation
-  deadAnime: PlayerMissAnimation
   onAttackHit:
     m_PersistentCalls:
       m_Calls: []
-  normalHitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
-  normalMissSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
-  enhancedHitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
-  enhancedMissSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
-  isEnhanced: 0
+  damageSE: {fileID: 8300000, guid: efa4b26d2359be047bdd60a0d5add496, type: 3}
 --- !u!114 &-7500714295435942384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +524,19 @@ MonoBehaviour:
   playerBeatAnchor: {fileID: 6982972360142112471}
   visualRoot: {fileID: 7528353673440687329}
   playerRigidbody: {fileID: 6532994379306523814}
+--- !u!114 &568753044265051807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172665270342875931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643d04ff260a75645b51584ac9a07fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFormController
+  initialForm: {fileID: 11400000, guid: 2ab702e91a60cb246a4cdbd6daa450ab, type: 2}
 --- !u!1 &5642848241699296316
 GameObject:
   m_ObjectHideFlags: 0

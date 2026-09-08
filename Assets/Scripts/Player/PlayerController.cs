@@ -8,8 +8,11 @@ using UnityEngine.Serialization;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [Header("移動")]
-    public float moveSpeed = 5f;
+    [Header("形態と表示")]
+    [SerializeField] private PlayerFormController formController;
+    [SerializeField] private PlayerAnimationController animationController;
+    public float moveSpeed => formController.Current.MoveSpeed;
+    public PlayerFormDefinition CurrentForm => formController.Current;
 
     [Header("共通タイミング設定")]
     [SerializeField] private MusicConductor musicConductor;
@@ -21,11 +24,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("攻撃に使用するオブジェクト")]
     [SerializeField] private AttackHitBox attackHitBox;
-    [SerializeField] private BoxCollider2D attackRangeCollider;
-    [FormerlySerializedAs("attackAnimationClip")]
-    [SerializeField] private AnimationClip PlayerAttackAnimation;
-    [SerializeField] private AnimationClip playerDamageAnimation;
-    [SerializeField] private Animator playerAnimator;
 
     [Header("ライフ関連")]
     public int maxLife = 6;
@@ -43,23 +41,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Min(0f)] private float multiKillMultiplier = 2f;
 
 
-    [Header("アニメーション名")]
-    public string normalAnime = "PlayerMoveAnimation";
-    public string normalAtackAnime = "PlayerAttackAnimation";
-    public string normalDamageAnime = "PlayerDamageAnimation";
-    public string deadAnime = "PlayerMissAnimation";
 
     [Header("攻撃ヒット時の通知")]
     [SerializeField] private UnityEvent<EnemyType> onAttackHit = new UnityEvent<EnemyType>();
 
-    [Header("攻撃音（プレイヤーごとに設定）")]
-    [SerializeField] private AudioClip normalHitSE;
-    [FormerlySerializedAs("testSE")]
-    [SerializeField] private AudioClip normalMissSE;
-    [SerializeField] private AudioClip enhancedHitSE;
-    [SerializeField] private AudioClip enhancedMissSE;
-    [SerializeField] private bool isEnhanced;
-    private bool attackWasEnhanced;
+    [Header("全形態共通の被弾音")]
+    [SerializeField] private AudioClip damageSE;
+    private PlayerFormDefinition attackForm;
+    private bool isAttacking;
+    private float attackStartedAt;
+    private float damageStartedAt;
+    private float activeAttackDuration;
+    private float activeDamageDuration;
+    private float activeAttackInterval;
     private bool isAttackLocked; // 攻撃中かどうかを示すフラグ
     private Coroutine attackCoroutine; // 実行中の攻撃処理
     private bool didHitThisAttack; // 攻撃中に敵にヒットしたかどうかを示すフラグ
@@ -80,7 +74,8 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         attackHitBox.gameObject.SetActive(false);
         inputActions = new InputSystem_Actions();
-        playerAnimator.Play(normalAnime);
+        formController.Initialize();
+        RefreshAnimation();
     }
 
     /// <summary>
@@ -89,6 +84,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
+        RefreshAnimation();
     }
 
     /// <summary>
@@ -97,12 +93,14 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         inputActions.Player.Disable();
+        StopAllCoroutines();
+        isAttacking = false;
         attackHitBox.gameObject.SetActive(false);
         isAttackLocked = false;
         isAttackDisabled = false;
         isDamaged = false;
         playerRigidbody.linearVelocity = Vector2.zero;
-        playerAnimator.speed = 1f;
+        animationController.ResetPresentation();
     }
 
     /// <summary>
@@ -146,22 +144,24 @@ public class PlayerController : MonoBehaviour
     {
         isAttackLocked = true;
         didHitThisAttack = false;
-        attackWasEnhanced = isEnhanced;
+        attackForm = formController.Current;
+        isAttacking = true;
+        attackStartedAt = musicConductor.PlaybackTimeSeconds;
 
         float attackDuration = musicConductor.BeatsToSeconds(attackDurationBeats);
         float attackInterval = musicConductor.BeatsToSeconds(attackIntervalBeats);
-        float attackAnimationSpeed = PlayerAttackAnimation.length / attackDuration;
+        activeAttackDuration = attackDuration;
+        activeAttackInterval = attackInterval;
 
         attackHitBox.BeginAttack();
         attackHitBox.gameObject.SetActive(true);
-        playerAnimator.speed = attackAnimationSpeed;
-        playerAnimator.Play(normalAtackAnime, 0, 0f); //後にプレイヤーの取得装備状態に応じた攻撃アニメーションを再生するようにする。それに伴い、有効長さも変更があるかもしれません。
+        RefreshAnimation();
 
         yield return WaitForMusicSeconds(attackDuration);
 
         attackHitBox.gameObject.SetActive(false);
-        playerAnimator.speed = 1f;
-        playerAnimator.Play(normalAnime, 0, 0f); //後にプレイヤーの取得装備状態に応じて戻すアニメーションも変えるようにする
+        isAttacking = false;
+        RefreshAnimation();
 
         yield return WaitForMusicSeconds(attackInterval);
 
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
     {
         didHitThisAttack = true;
         lastHitEnemyType = enemyType;
-        AudioManager.Instance.PlaySE(attackWasEnhanced ? enhancedHitSE : normalHitSE);
+        AudioManager.Instance.PlaySE(attackForm.HitSE);
         onAttackHit.Invoke(enemyType);
     }
 
@@ -184,17 +184,43 @@ public class PlayerController : MonoBehaviour
     {
         if (defeatedCount == 0)
         {
-            AudioManager.Instance.PlaySE(attackWasEnhanced ? enhancedMissSE : normalMissSE);
+            AudioManager.Instance.PlaySE(attackForm.MissSE);
             return;
         }
         float multiplier = defeatedCount >= multiKillThreshold ? multiKillMultiplier : singleKillMultiplier;
         currentScore += Mathf.RoundToInt(baseScore * multiplier);
     }
 
-    // 後から実装する強化アイテムなどから、次回以降の攻撃状態を変更します。
-    public void SetEnhanced(bool enhanced)
+    // 進行中の攻撃は旧形態の設定で一度だけ精算し、形態を切り替えます。
+    public void ChangeForm(PlayerFormDefinition nextForm)
     {
-        isEnhanced = enhanced;
+        if (formController.Current == nextForm) return;
+        if (isAttacking)
+        {
+            StopCoroutine(attackCoroutine);
+            attackHitBox.gameObject.SetActive(false);
+            isAttacking = false;
+            attackCoroutine = StartCoroutine(AttackCooldownCoroutine());
+        }
+        formController.ChangeForm(nextForm);
+        RefreshAnimation();
+    }
+
+    // 形態変更で攻撃を中断しても、攻撃後の待機時間は省略しません。
+    private IEnumerator AttackCooldownCoroutine()
+    {
+        yield return WaitForMusicSeconds(activeAttackInterval);
+        isAttackLocked = false;
+    }
+
+    // 終了処理ごとに現在の状態を確認し、被弾終了で攻撃表示を上書きしません。
+    private void RefreshAnimation()
+    {
+        float time = musicConductor.PlaybackTimeSeconds;
+        float attackProgress = isAttacking ? (time - attackStartedAt) / activeAttackDuration : 0f;
+        float damageProgress = isDamaged ? (time - damageStartedAt) / activeDamageDuration : 0f;
+        animationController.Refresh(formController.Current, isAttacking, isDamaged,
+            attackProgress, damageProgress, activeAttackDuration, activeDamageDuration);
     }
 
     /// <summary>
@@ -208,7 +234,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player hit by enemy!");
             currentLife = Mathf.Max(0, currentLife - 1);
 
-            //被弾時のSEを再生する
+            AudioManager.Instance.PlaySE(damageSE);
 
             float invincibleDuration = musicConductor.BeatsToSeconds(invincibleTimeBeats);
             float noAttackDuration = musicConductor.BeatsToSeconds(noAttackTimeBeats);
@@ -219,6 +245,7 @@ public class PlayerController : MonoBehaviour
                 StopCoroutine(attackCoroutine);
                 attackHitBox.gameObject.SetActive(false);
                 isAttackLocked = false;
+                isAttacking = false;
             }
 
             isDamaged = true;
@@ -227,15 +254,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(AttackDisableCoroutine(noAttackDuration));
         }
 
-        //アイテム取得時
-        if (collision.CompareTag("Item"))
-        {
-            Item item = collision.GetComponent<Item>();
-            //取得アイテムごとの処理を記載予定。
-            //switch (item.itemType)
-            //Item.ItemType.Heart:
-            currentScore += item.scoreValue;
-        }
     }
 
     /// <summary>
@@ -243,14 +261,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator InvincibilityCoroutine(float duration)
     {
-        playerAnimator.speed = playerDamageAnimation.length / duration;
-        playerAnimator.Play(normalDamageAnime, 0, 0f);
+        damageStartedAt = musicConductor.PlaybackTimeSeconds;
+        activeDamageDuration = duration;
+        RefreshAnimation();
 
         yield return WaitForMusicSeconds(duration);
 
         isDamaged = false;
-        playerAnimator.speed = 1f;
-        playerAnimator.Play(normalAnime, 0, 0f);
+        RefreshAnimation();
     }
 
     /// <summary>

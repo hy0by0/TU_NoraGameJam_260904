@@ -785,6 +785,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &208790469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3941,6 +3942,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &928521416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4430,6 +4432,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: abfc0849a8b0f0649bad482d8bc9df3f, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &1156010264
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5692,6 +5695,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: abfc0849a8b0f0649bad482d8bc9df3f, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &1533371842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6148,6 +6152,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &1716174480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6480,6 +6485,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &1822142484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6974,6 +6980,7 @@ MonoBehaviour:
   itemType: 3
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: abfc0849a8b0f0649bad482d8bc9df3f, type: 3}
+  targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
 --- !u!61 &1921783399
 BoxCollider2D:
   m_ObjectHideFlags: 0
