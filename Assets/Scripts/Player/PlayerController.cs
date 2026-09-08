@@ -1,4 +1,3 @@
-﻿using NUnit.Framework.Internal;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -39,6 +38,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("スコア関連")]
     public int currentScore = 0;
+    [SerializeField, Min(2)] private int multiKillThreshold = 2;
+    [SerializeField, Min(0f)] private float singleKillMultiplier = 1f;
+    [SerializeField, Min(0f)] private float multiKillMultiplier = 2f;
 
 
     [Header("アニメーション名")]
@@ -50,7 +52,14 @@ public class PlayerController : MonoBehaviour
     [Header("攻撃ヒット時の通知")]
     [SerializeField] private UnityEvent<EnemyType> onAttackHit = new UnityEvent<EnemyType>();
 
-    [SerializeField] private AudioClip testSE;
+    [Header("攻撃音（プレイヤーごとに設定）")]
+    [SerializeField] private AudioClip normalHitSE;
+    [FormerlySerializedAs("testSE")]
+    [SerializeField] private AudioClip normalMissSE;
+    [SerializeField] private AudioClip enhancedHitSE;
+    [SerializeField] private AudioClip enhancedMissSE;
+    [SerializeField] private bool isEnhanced;
+    private bool attackWasEnhanced;
     private bool isAttackLocked; // 攻撃中かどうかを示すフラグ
     private Coroutine attackCoroutine; // 実行中の攻撃処理
     private bool didHitThisAttack; // 攻撃中に敵にヒットしたかどうかを示すフラグ
@@ -109,7 +118,6 @@ public class PlayerController : MonoBehaviour
             && !isAttackLocked
             && !isAttackDisabled)
         {
-            AudioManager.Instance.PlaySE(testSE); //空振り音の時のSEを流す？
             attackCoroutine = StartCoroutine(AttackCoroutine());
         }
 
@@ -138,6 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         isAttackLocked = true;
         didHitThisAttack = false;
+        attackWasEnhanced = isEnhanced;
 
         float attackDuration = musicConductor.BeatsToSeconds(attackDurationBeats);
         float attackInterval = musicConductor.BeatsToSeconds(attackIntervalBeats);
@@ -166,7 +175,26 @@ public class PlayerController : MonoBehaviour
     {
         didHitThisAttack = true;
         lastHitEnemyType = enemyType;
+        AudioManager.Instance.PlaySE(attackWasEnhanced ? enhancedHitSE : normalHitSE);
         onAttackHit.Invoke(enemyType);
+    }
+
+    // 空振り音、または今回倒した敵の基礎点合計に倍率を掛けた加点を確定します。
+    public void CompleteAttack(int defeatedCount, int baseScore)
+    {
+        if (defeatedCount == 0)
+        {
+            AudioManager.Instance.PlaySE(attackWasEnhanced ? enhancedMissSE : normalMissSE);
+            return;
+        }
+        float multiplier = defeatedCount >= multiKillThreshold ? multiKillMultiplier : singleKillMultiplier;
+        currentScore += Mathf.RoundToInt(baseScore * multiplier);
+    }
+
+    // 後から実装する強化アイテムなどから、次回以降の攻撃状態を変更します。
+    public void SetEnhanced(bool enhanced)
+    {
+        isEnhanced = enhanced;
     }
 
     /// <summary>

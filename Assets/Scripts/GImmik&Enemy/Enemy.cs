@@ -1,44 +1,23 @@
-﻿using DG.Tweening;
 using UnityEngine;
 
+// 敵の種類です。
+public enum EnemyType { Normal, Shooter, Parry, Boss }
 
-//敵の種類
-public enum EnemyType
-{
-    Normal,
-    Shooter,
-    Parry,
-    Boss
-}
-
-
+// 一撃で倒れる敵の基礎スコアと、重複撃破の防止を管理します。
 public class Enemy : MonoBehaviour
 {
-    public EnemyType enemyType; //敵の種類
-    [SerializeField] private AudioClip hitSE; //攻撃を受けた時のSE
+    public EnemyType enemyType;
+    [SerializeField, Min(0)] private int scoreValue = 100;
+    private bool isDefeated;
+    public int ScoreValue => scoreValue;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // 複数の当たり判定に触れても、一度だけ撃破を受け付けます。
+    public bool TryDefeat()
     {
-        
+        if (isDefeated) return false;
+        isDefeated = true;
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+        return true;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Attack")
-        {
-            Debug.Log("Hit！");
-            AudioManager.Instance.PlaySE(hitSE); //SEを再生
-            Destroy(gameObject); //敵を破壊する
-        }
-    }
-
 }

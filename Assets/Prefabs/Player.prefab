@@ -377,6 +377,9 @@ MonoBehaviour:
   invincibleTimeBeats: 1
   noAttackTimeBeats: 0.5
   currentScore: 0
+  multiKillThreshold: 2
+  singleKillMultiplier: 1
+  multiKillMultiplier: 2
   normalAnime: PlayerMoveAnimation
   normalAtackAnime: PlayerAttackAnimation
   normalDamageAnime: PlayerDamageAnimation
@@ -384,7 +387,11 @@ MonoBehaviour:
   onAttackHit:
     m_PersistentCalls:
       m_Calls: []
-  testSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
+  normalHitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
+  normalMissSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
+  enhancedHitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
+  enhancedMissSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
+  isEnhanced: 0
 --- !u!114 &-7500714295435942384
 MonoBehaviour:
   m_ObjectHideFlags: 0
