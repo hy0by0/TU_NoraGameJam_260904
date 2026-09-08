@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MusicConductor musicConductor;
     [SerializeField] private PlayerEntranceController entranceController;
 
+    [Header("上下移動範囲")]
+    [SerializeField, Tooltip("プレイヤーが移動できる最も下のワールドY座標です。")]
+    private float verticalLowerLimit = -4f;
+    [SerializeField, Tooltip("プレイヤーが移動できる最も上のワールドY座標です。")]
+    private float verticalUpperLimit = 4f;
+
     [Header("攻撃タイミング")]
     [SerializeField, Min(0.01f)] private float attackDurationBeats = 0.5f;
     [SerializeField, Min(0f)] private float attackIntervalBeats = 1f;
@@ -170,6 +176,7 @@ public class PlayerController : MonoBehaviour
         }
 
         float targetY = playerRigidbody.position.y + moveInput.y * moveSpeed * Time.fixedDeltaTime;
+        targetY = Mathf.Clamp(targetY, verticalLowerLimit, verticalUpperLimit);
         Vector2 targetPosition = new Vector2(entranceController.GameplayWorldX, targetY);
         playerRigidbody.MovePosition(targetPosition);
     }
