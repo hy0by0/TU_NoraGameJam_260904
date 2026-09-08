@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AttackHitBox attackHitBox;
     [SerializeField] private PlayerSlashEffect slashEffect;
     [SerializeField] private PlayerBeamAttack beamAttack;
+    [SerializeField] private FinalEventController finalEventController;
 
     [Header("ライフ関連")]
     [SerializeField] private Collider2D damageCollider;
@@ -64,9 +65,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private InputSystem_Actions inputActions;
     private Vector2 moveInput;
+    private bool isFinalEventActive;
 
     public bool DidHitThisAttack => didHitThisAttack;
     public EnemyType LastHitEnemyType => lastHitEnemyType;
+    public bool IsFinalEventActive => isFinalEventActive;
 
 
     /// <summary>
@@ -115,6 +118,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (isFinalEventActive)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
         moveInput = inputActions.Player.Move.ReadValue<Vector2>();
 
         // Input Actions の Attack に割り当てられた左クリックで攻撃します。
@@ -133,6 +141,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        if (isFinalEventActive)
+        {
+            playerRigidbody.linearVelocity = Vector2.zero;
+            return;
+        }
         if (!entranceController.IsInputEnabled || !entranceController.HasReachedReferencePosition)
         {
             playerRigidbody.linearVelocity = Vector2.zero;
@@ -302,6 +315,25 @@ public class PlayerController : MonoBehaviour
         }
         formController.ChangeForm(nextForm);
         RefreshAnimation();
+        if (nextForm.Kind == PlayerFormKind.Finale)
+            finalEventController.BeginEvent();
+    }
+
+    // 最終イベント開始時に通常入力・攻撃・被弾を止め、専用演出へ制御を渡します。
+    public void BeginFinalEventState()
+    {
+        StopAllCoroutines();
+        attackHitBox.gameObject.SetActive(false);
+        slashEffect.Hide();
+        beamAttack.End();
+        isAttacking = false;
+        isAttackLocked = true;
+        isAttackDisabled = true;
+        isDamaged = false;
+        isFinalEventActive = true;
+        moveInput = Vector2.zero;
+        playerRigidbody.linearVelocity = Vector2.zero;
+        RefreshAnimation();
     }
 
     // 形態変更で攻撃を中断しても、攻撃後の待機時間は省略しません。
@@ -331,7 +363,7 @@ public class PlayerController : MonoBehaviour
     {
         //被弾時
         // 攻撃範囲から親Rigidbody2Dへ届いた通知を、本体の被弾と取り違えないようにします。
-        if (collision.CompareTag("Enemy") && !isDamaged && damageCollider.IsTouching(collision))
+        if (collision.CompareTag("Enemy") && !isDamaged && !isFinalEventActive && damageCollider.IsTouching(collision))
         {
             Debug.Log("Player hit by enemy!");
             currentLife = Mathf.Max(0, currentLife - 1);

@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eccf3d2cfd4aa34480c77ee679a58b2, type: 3}
+  m_Name: FinalEventTimeline
+  m_EditorClassIdentifier: Assembly-CSharp::FinalEventDefinition
+  itemCollectBeat: 490
+  itemHomingDurationBeats: 2
+  itemHomingStartViewport: {x: 1.08, y: 0.65}
+  itemHomingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playerMoveStartBeat: 0
+  playerMoveDurationBeats: 2
+  playerTargetViewport: {x: 0.25, y: 0.42}
+  playerMoveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bossMoveStartBeat: 0
+  bossMoveDurationBeats: 2
+  bossStartViewport: {x: 1.2, y: 0.52}
+  bossTargetViewport: {x: 0.78, y: 0.52}
+  bossMoveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playerMoveFrames:
+  - {fileID: 21300000, guid: b755bfb1887b9944695ceec335bc295e, type: 3}
+  playerAttackSwitchBeat: 2
+  playerAttackFrames:
+  - {fileID: 21300000, guid: b755bfb1887b9944695ceec335bc295e, type: 3}
+  playerFrameDurationBeats: 0.25
+  bossMoveFrames:
+  - {fileID: 21300000, guid: 62bffe05022089a488036ab79fd9539a, type: 3}
+  bossDamageSwitchBeat: 4
+  bossDamageFrames:
+  - {fileID: 21300000, guid: 57f4cb12047d1664aa723a791d8a33c3, type: 3}
+  bossFrameDurationBeats: 0.25
+  chargeStartBeat: 2
+  chargeDurationBeats: 1
+  beamStartBeat: 3
+  beamDurationBeats: 1
+  beamExtendBeats: 0.25
+  beamStartThickness: 1.2
+  beamEndThickness: 0.3
+  beamStartOffset: 0.55
+  impactStartBeat: 4
+  impactDurationBeats: 2
+  flashDiameter: 1.2
+  bossShakeDistance: 0.22
+  hideGameplayUiBeat: 0
+  imageCues:
+  - layer: 0
+    startBeat: 6
+    endBeat: 999
+    fadeInBeats: 0.5
+    sprite: {fileID: 21300000, guid: e4258a5b90457e7428e362740f8bfc70, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - layer: 1
+    startBeat: 6
+    endBeat: 8
+    fadeInBeats: 0.5
+    sprite: {fileID: 21300000, guid: e6eddb773796144499059e16cac674f2, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - layer: 2
+    startBeat: 8
+    endBeat: 10
+    fadeInBeats: 0.5
+    sprite: {fileID: 21300000, guid: 2a55bad5fb1b14643bc9af60cc86e633, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - layer: 2
+    startBeat: 10
+    endBeat: 999
+    fadeInBeats: 0.5
+    sprite: {fileID: 21300000, guid: b3f9405391ac525418cb672df6445ff6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  textCues:
+  - startBeat: 6
+    endBeat: 8
+    fadeInBeats: 0.25
+    message: "\u2026\u2026"
+    fontSize: 40
+    color: {r: 1, g: 1, b: 1, a: 1}
+    anchoredPosition: {x: 0, y: -190}
+  - startBeat: 11.5
+    endBeat: 999
+    fadeInBeats: 0.5
+    message: Thank you for playing
+    fontSize: 44
+    color: {r: 1, g: 1, b: 1, a: 1}
+    anchoredPosition: {x: 0, y: -190}
