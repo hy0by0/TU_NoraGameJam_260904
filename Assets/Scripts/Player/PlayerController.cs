@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
     private Coroutine attackCoroutine; // 実行中の攻撃処理
     private bool didHitThisAttack; // 攻撃中に敵にヒットしたかどうかを示すフラグ
     private EnemyType lastHitEnemyType;
+    private int comboStrikeIndex; // 現在処理している5連撃の段数（0始まり）
+    private bool comboHitSEStarted; // 5連撃中にヒット音の時間軸へ切り替えたかどうか
     private Rigidbody2D playerRigidbody;
     private InputSystem_Actions inputActions;
     private Vector2 moveInput;
@@ -228,6 +230,8 @@ public class PlayerController : MonoBehaviour
         isAttackLocked = true;
         isAttacking = true;
         didHitThisAttack = false;
+        comboStrikeIndex = 0;
+        comboHitSEStarted = false;
         attackForm = formController.Current;
         attackStartedAt = musicConductor.PlaybackTimeSeconds;
         float spacing = musicConductor.BeatsToSeconds(attackForm.ComboSpacingBeats);
@@ -238,13 +242,14 @@ public class PlayerController : MonoBehaviour
 
         for (int index = 0; index < PlayerFormDefinition.ComboHitCount; index++)
         {
+            comboStrikeIndex = index;
             float start = attackStartedAt + index * spacing;
             yield return WaitForComboTime(start, spacing);
             if (!musicConductor.IsGameRunning) break;
             attackHitBox.BeginAttack();
             attackHitBox.gameObject.SetActive(true);
             yield return WaitForComboTime(start + hitDuration, spacing);
-            // 各発ごとに音と得点を精算します。判定は次の発まで閉じます。
+            // 各発ごとに得点を精算します。効果音は連撃全体の時間軸で管理し、判定は次の発まで閉じます。
             attackHitBox.gameObject.SetActive(false);
         }
 
@@ -306,7 +311,24 @@ public class PlayerController : MonoBehaviour
     {
         didHitThisAttack = true;
         lastHitEnemyType = enemyType;
-        AudioManager.Instance.PlaySE(attackForm.HitSE);
+
+        if (attackForm.Kind == PlayerFormKind.FiveHit)
+        {
+            // 1段目の命中は音源の先頭から、途中の初命中は連撃の経過位置から一度だけ再生します。
+            if (!comboHitSEStarted)
+            {
+                float elapsedSeconds = comboStrikeIndex == 0
+                    ? 0f
+                    : Mathf.Max(0f, musicConductor.PlaybackTimeSeconds - attackStartedAt);
+                AudioManager.Instance.PlaySEFromTime(attackForm.HitSE, elapsedSeconds);
+                comboHitSEStarted = true;
+            }
+        }
+        else
+        {
+            AudioManager.Instance.PlaySE(attackForm.HitSE);
+        }
+
         onAttackHit.Invoke(enemyType);
     }
 
@@ -315,6 +337,17 @@ public class PlayerController : MonoBehaviour
     {
         if (defeatedCount == 0)
         {
+            if (attackForm.Kind == PlayerFormKind.FiveHit)
+            {
+                // 1段目が空振りした時だけ空振り音の時間軸を開始し、各段での重複再生を防ぎます。
+                if (comboStrikeIndex == 0 && !comboHitSEStarted)
+                {
+                    float elapsedSeconds = Mathf.Max(0f, musicConductor.PlaybackTimeSeconds - attackStartedAt);
+                    AudioManager.Instance.PlaySEFromTime(attackForm.MissSE, elapsedSeconds);
+                }
+                return;
+            }
+
             AudioManager.Instance.PlaySE(attackForm.MissSE);
             return;
         }

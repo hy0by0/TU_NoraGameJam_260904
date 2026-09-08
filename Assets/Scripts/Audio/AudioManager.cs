@@ -27,6 +27,19 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 指定した経過秒数に再生位置を合わせ、時間軸に沿ってSEを再生します。
+    /// </summary>
+    public void PlaySEFromTime(AudioClip clip, float elapsedSeconds)
+    {
+        float playbackPosition = Mathf.Clamp(elapsedSeconds, 0f, clip.length);
+        if (playbackPosition >= clip.length) return;
+
+        seSource.clip = clip;
+        seSource.time = playbackPosition;
+        seSource.Play();
+    }
+
+    /// <summary>
     /// 最終イベントなど、以降のSEを完全に止める場面で再生中のSEを停止します。
     /// </summary>
     public void StopSE()
