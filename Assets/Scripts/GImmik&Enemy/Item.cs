@@ -1,64 +1,35 @@
-﻿using UnityEngine;
+using UnityEngine;
 
+// アイテムの取得を一度だけ処理し、加点・取得音・指定形態への変更を行います。
 public class Item : MonoBehaviour
 {
-    public enum ItemType
-    {
-        Normal,
-        Heart,
-        Wide,
-        Speed,
-        FinalSword
-    }
+    // 保存済みシーンとPrefabの番号を維持します。
+    public enum ItemType { Normal = 0, Heart = 1, Wide = 2, Speed = 3, FinalSword = 4 }
 
     public ItemType itemType;
-    public int scoreValue = 100; //アイテムのスコア値
-    [SerializeField] private AudioClip hitSE; //攻撃を受けた時のSE
+    public int scoreValue = 100;
+    [SerializeField] private AudioClip hitSE;
+    [Header("強化アイテム（Wide / Speed / FinalSword）の変更先")]
+    [SerializeField] private PlayerFormDefinition targetForm;
+    private bool isCollected;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // 子Colliderで触れた場合も親のPlayerControllerへ取得を通知します。
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Get！");
-            AudioManager.Instance.PlaySE(hitSE); //SEを再生
-            Destroy(gameObject); //アイテムを削除
-
-            switch (itemType)
-            {
-                case ItemType.Normal:
-                    // 通常アイテムの処理
-                    //GameManager.Instance.AddScore(scoreValue);
-                    break;
-                case ItemType.Heart:
-                    // ハートアイテムの処理
-                    //PlayerController.currentLife++;
-                    break;
-                case ItemType.Wide:
-                    // ワイドアイテムの処理
-                    //GameManager.Instance.AddScore(scoreValue);
-                    break;
-                case ItemType.Speed:
-                    // スピードアイテムの処理
-                    //GameManager.Instance.AddScore(scoreValue);
-                    break;
-                case ItemType.FinalSword:
-                    // ファイナルソードアイテムの処理
-                    //GameManager.Instance.AddScore(scoreValue);
-                    break;
-            }
-        }
+        if (!collision.CompareTag("Player")) return;
+        Collect(collision.GetComponentInParent<PlayerController>());
     }
 
+    // 複数のColliderで接触しても、効果と音と加点を一度だけ実行します。
+    public void Collect(PlayerController player)
+    {
+        if (isCollected) return;
+        isCollected = true;
+        player.currentScore += scoreValue;
+        if (itemType == ItemType.Wide || itemType == ItemType.Speed || itemType == ItemType.FinalSword)
+            player.ChangeForm(targetForm);
+        AudioManager.Instance.PlaySE(hitSE);
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 // 一回の攻撃の撃破数を集計し、命中音と加点をプレイヤーへ通知します。
 public class AttackHitBox : MonoBehaviour
@@ -7,6 +8,16 @@ public class AttackHitBox : MonoBehaviour
     private bool isAttackActive;
     private int defeatedCount;
     private int baseScore;
+    private readonly List<Collider2D> overlapResults = new List<Collider2D>();
+
+    // ビームの伸縮後に現在の範囲を即時検査し、短い表示時間でも接触を取りこぼしません。
+    public void CollectOverlaps(BoxCollider2D range)
+    {
+        var filter = ContactFilter2D.noFilter;
+        range.Overlap(filter, overlapResults);
+        for (int index = 0; index < overlapResults.Count; index++)
+            OnTriggerEnter2D(overlapResults[index]);
+    }
 
     // 新しい攻撃の集計を開始します。
     public void BeginAttack()
