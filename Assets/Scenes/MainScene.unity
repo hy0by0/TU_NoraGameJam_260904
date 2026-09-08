@@ -8983,7 +8983,7 @@ MonoBehaviour:
     - {fileID: 130213474}
     - {fileID: 623286740}
     - {fileID: 241416921}
-    scrollMultiplier: 0.35
+    scrollMultiplier: 14
     loopImageWidth: 1920
     moveDirection: {x: -1, y: 0}
     initialPosition: {x: 0, y: 0}
@@ -8994,7 +8994,7 @@ MonoBehaviour:
     - {fileID: 2112611756}
     - {fileID: 2076841100}
     - {fileID: 1631553875}
-    scrollMultiplier: 0.7
+    scrollMultiplier: 28
     loopImageWidth: 1920
     moveDirection: {x: -1, y: 0}
     initialPosition: {x: 0, y: 0}
