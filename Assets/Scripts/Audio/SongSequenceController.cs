@@ -81,6 +81,9 @@ public class SongSequenceController : MonoBehaviour
     private double previousPlaybackTimeSeconds;
     private bool hasPreviousPlaybackTime;
     private bool wasInPreRoll;
+    private bool isSequenceEnabled = true;
+
+    public bool IsSequenceEnabled => isSequenceEnabled;
 
     /// <summary>
     /// Inspectorのイベントを、曲内位置・実行順・登録順の優先度で並べます。
@@ -96,6 +99,12 @@ public class SongSequenceController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (!isSequenceEnabled)
+        {
+            hasPreviousPlaybackTime = false;
+            return;
+        }
+
         bool isInPreRoll = musicController.State == GameMusicController.PlaybackState.Scheduled
             || musicController.State == GameMusicController.PlaybackState.PreRoll;
 
@@ -133,6 +142,15 @@ public class SongSequenceController : MonoBehaviour
         }
 
         previousPlaybackTimeSeconds = 0d;
+        hasPreviousPlaybackTime = false;
+    }
+
+    /// <summary>
+    /// 終了演出中に未実行イベントが発火しないよう、曲中イベントの監視を切り替えます。
+    /// </summary>
+    public void SetSequenceEnabled(bool isEnabled)
+    {
+        isSequenceEnabled = isEnabled;
         hasPreviousPlaybackTime = false;
     }
 

@@ -102,6 +102,16 @@ public class FinalEventController : MonoBehaviour
         EvaluateEvent(lastKnownRelativeBeat);
     }
 
+    /// <summary>曲終了またはゲームオーバー時に最終演出の更新と専用表示を停止します。</summary>
+    public void StopForGameFlow()
+    {
+        isRunning = false;
+        finalBeamRoot.gameObject.SetActive(false);
+        chargeFlash.gameObject.SetActive(false);
+        impactFlash.gameObject.SetActive(false);
+        eventCanvas.gameObject.SetActive(false);
+    }
+
     /// <summary>BGM再生中は曲の絶対拍、曲終了後は実時間を補助に使って演出を最後まで進めます。</summary>
     private void Update()
     {

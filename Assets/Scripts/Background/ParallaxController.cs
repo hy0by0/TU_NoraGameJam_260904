@@ -74,7 +74,10 @@ public class ParallaxController : MonoBehaviour
     [SerializeField] private List<ParallaxBackgroundSet> backgroundSets = new List<ParallaxBackgroundSet>();
     [SerializeField, Min(0)] private int initialSetIndex;
 
+    private bool isScrollingEnabled = true;
+
     public int CurrentSetIndex { get; private set; }
+    public bool IsScrollingEnabled => isScrollingEnabled;
 
     /// <summary>
     /// Inspectorで指定した初期セットと初期位置を反映します。
@@ -90,7 +93,25 @@ public class ParallaxController : MonoBehaviour
     /// </summary>
     private void LateUpdate()
     {
+        if (!isScrollingEnabled)
+        {
+            return;
+        }
+
         UpdateLayerPositions();
+    }
+
+    /// <summary>
+    /// 終了演出中に背景位置を固定するため、Parallax位置更新を切り替えます。
+    /// </summary>
+    public void SetScrollingEnabled(bool isEnabled)
+    {
+        isScrollingEnabled = isEnabled;
+
+        if (isEnabled)
+        {
+            UpdateLayerPositions();
+        }
     }
 
     /// <summary>
