@@ -24,8 +24,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("攻撃に使用するオブジェクト")]
     [SerializeField] private AttackHitBox attackHitBox;
+    [SerializeField] private PlayerSlashEffect slashEffect;
+    [SerializeField] private PlayerBeamAttack beamAttack;
 
     [Header("ライフ関連")]
+    [SerializeField] private Collider2D damageCollider;
     public int maxLife = 6;
     public int currentLife = 6;
     [SerializeField, Min(0.01f)] private float invincibleTimeBeats = 1f; // 被弾後の無敵時間（拍数）
@@ -74,7 +77,9 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         attackHitBox.gameObject.SetActive(false);
         inputActions = new InputSystem_Actions();
+        slashEffect.Hide();
         formController.Initialize();
+        beamAttack.End();
         RefreshAnimation();
     }
 
@@ -95,7 +100,9 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Disable();
         StopAllCoroutines();
         isAttacking = false;
+        slashEffect.Hide();
         attackHitBox.gameObject.SetActive(false);
+        beamAttack.End();
         isAttackLocked = false;
         isAttackDisabled = false;
         isDamaged = false;
@@ -142,6 +149,16 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator AttackCoroutine()
     {
+        if (formController.Current.Kind == PlayerFormKind.Beam)
+        {
+            yield return BeamAttackCoroutine();
+            yield break;
+        }
+        if (formController.Current.Kind == PlayerFormKind.FiveHit)
+        {
+            yield return ComboAttackCoroutine();
+            yield break;
+        }
         isAttackLocked = true;
         didHitThisAttack = false;
         attackForm = formController.Current;
@@ -168,6 +185,83 @@ public class PlayerController : MonoBehaviour
         isAttackLocked = false;
     }
 
+    // 攻撃開始からの絶対時刻で5回の判定を開閉し、フレームごとの待機誤差を蓄積させません。
+    private IEnumerator ComboAttackCoroutine()
+    {
+        isAttackLocked = true;
+        isAttacking = true;
+        didHitThisAttack = false;
+        attackForm = formController.Current;
+        attackStartedAt = musicConductor.PlaybackTimeSeconds;
+        float spacing = musicConductor.BeatsToSeconds(attackForm.ComboSpacingBeats);
+        float hitDuration = musicConductor.BeatsToSeconds(attackForm.ComboHitDurationBeats);
+        activeAttackDuration = spacing * (PlayerFormDefinition.ComboHitCount - 1) + hitDuration;
+        activeAttackInterval = musicConductor.BeatsToSeconds(attackForm.ComboCooldownBeats);
+        RefreshAnimation();
+
+        for (int index = 0; index < PlayerFormDefinition.ComboHitCount; index++)
+        {
+            float start = attackStartedAt + index * spacing;
+            yield return WaitForComboTime(start, spacing);
+            if (!musicConductor.IsGameRunning) break;
+            attackHitBox.BeginAttack();
+            attackHitBox.gameObject.SetActive(true);
+            yield return WaitForComboTime(start + hitDuration, spacing);
+            // 各発ごとに音と得点を精算します。判定は次の発まで閉じます。
+            attackHitBox.gameObject.SetActive(false);
+        }
+
+        slashEffect.Hide();
+        isAttacking = false;
+        RefreshAnimation();
+        yield return WaitForMusicSeconds(activeAttackInterval);
+        isAttackLocked = false;
+        RefreshAnimation();
+    }
+
+    // 魔法形態は専用ビームだけを使い、1発分の終了後に指定拍数だけ待機します。
+    private IEnumerator BeamAttackCoroutine()
+    {
+        isAttackLocked = true;
+        isAttacking = true;
+        didHitThisAttack = false;
+        attackForm = formController.Current;
+        attackStartedAt = musicConductor.PlaybackTimeSeconds;
+        activeAttackDuration = musicConductor.BeatsToSeconds(attackForm.BeamDurationBeats);
+        activeAttackInterval = musicConductor.BeatsToSeconds(attackForm.BeamCooldownBeats);
+        RefreshAnimation();
+        beamAttack.Begin(attackForm);
+        while (musicConductor.IsGameRunning && musicConductor.PlaybackTimeSeconds < attackStartedAt + activeAttackDuration)
+        {
+            beamAttack.Sample((musicConductor.PlaybackTimeSeconds - attackStartedAt) / activeAttackDuration);
+            yield return null;
+        }
+        beamAttack.End();
+        isAttacking = false;
+        RefreshAnimation();
+        yield return WaitForMusicSeconds(activeAttackInterval);
+        isAttackLocked = false;
+        RefreshAnimation();
+    }
+
+    // 待機中も通常絵との交互表示と斬撃2枚を、同じBGM時計で進めます。
+    private IEnumerator WaitForComboTime(float endTime, float spacing)
+    {
+        while (musicConductor.IsGameRunning && musicConductor.PlaybackTimeSeconds < endTime)
+        {
+            float progress = (musicConductor.PlaybackTimeSeconds - attackStartedAt) / spacing;
+            // 判定時間を調整しても、クリップ前半の攻撃絵と後半の通常絵を判定に合わせます。
+            float phase = Mathf.Repeat(progress, 1f);
+            float hitRatio = attackForm.ComboHitDurationBeats / attackForm.ComboSpacingBeats;
+            float animationPhase = phase < hitRatio
+                ? phase / hitRatio * 0.5f
+                : 0.5f + (phase - hitRatio) / (1f - hitRatio) * 0.5f;
+            animationController.SampleCombo(animationPhase);
+            slashEffect.Show(progress);
+            yield return null;
+        }
+    }
+
     /// <summary>
     /// AttackHitBoxが最初に感知した敵タイプを保存し、効果音などの後続処理へ通知します。
     /// </summary>
@@ -188,6 +282,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
         float multiplier = defeatedCount >= multiKillThreshold ? multiKillMultiplier : singleKillMultiplier;
+        if (attackForm.Kind == PlayerFormKind.Beam)
+            multiplier = defeatedCount >= multiKillThreshold ? attackForm.BeamMultiKillMultiplier : attackForm.BeamSingleKillMultiplier;
         currentScore += Mathf.RoundToInt(baseScore * multiplier);
     }
 
@@ -199,7 +295,9 @@ public class PlayerController : MonoBehaviour
         {
             StopCoroutine(attackCoroutine);
             attackHitBox.gameObject.SetActive(false);
+            beamAttack.End();
             isAttacking = false;
+            slashEffect.Hide();
             attackCoroutine = StartCoroutine(AttackCooldownCoroutine());
         }
         formController.ChangeForm(nextForm);
@@ -211,6 +309,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return WaitForMusicSeconds(activeAttackInterval);
         isAttackLocked = false;
+        RefreshAnimation();
     }
 
     // 終了処理ごとに現在の状態を確認し、被弾終了で攻撃表示を上書きしません。
@@ -220,7 +319,9 @@ public class PlayerController : MonoBehaviour
         float attackProgress = isAttacking ? (time - attackStartedAt) / activeAttackDuration : 0f;
         float damageProgress = isDamaged ? (time - damageStartedAt) / activeDamageDuration : 0f;
         animationController.Refresh(formController.Current, isAttacking, isDamaged,
-            attackProgress, damageProgress, activeAttackDuration, activeDamageDuration);
+            attackProgress, damageProgress, activeAttackDuration, activeDamageDuration,
+            isAttackLocked && !isAttacking && formController.Current.Kind == PlayerFormKind.FiveHit
+                && formController.Current == attackForm);
     }
 
     /// <summary>
@@ -229,7 +330,8 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //被弾時
-        if (collision.CompareTag("Enemy") && !isDamaged)
+        // 攻撃範囲から親Rigidbody2Dへ届いた通知を、本体の被弾と取り違えないようにします。
+        if (collision.CompareTag("Enemy") && !isDamaged && damageCollider.IsTouching(collision))
         {
             Debug.Log("Player hit by enemy!");
             currentLife = Mathf.Max(0, currentLife - 1);
@@ -244,8 +346,10 @@ public class PlayerController : MonoBehaviour
             {
                 StopCoroutine(attackCoroutine);
                 attackHitBox.gameObject.SetActive(false);
+                beamAttack.End();
                 isAttackLocked = false;
                 isAttacking = false;
+                slashEffect.Hide();
             }
 
             isDamaged = true;

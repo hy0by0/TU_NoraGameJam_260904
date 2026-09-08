@@ -17,3 +17,13 @@ MonoBehaviour:
   animations: {fileID: 22100000, guid: e3c43044e484d9b45a3ab777914a63ad, type: 2}
   hitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
   missSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
+  comboSpacingBeats: 0.25
+  comboHitDurationBeats: 0.125
+  comboCooldownBeats: 1
+  beamDurationBeats: 0.5
+  beamExtendBeats: 0.09
+  beamCooldownBeats: 1
+  beamLength: 9.5
+  beamThickness: 0.8
+  beamSingleKillMultiplier: 1
+  beamMultiKillMultiplier: 3
