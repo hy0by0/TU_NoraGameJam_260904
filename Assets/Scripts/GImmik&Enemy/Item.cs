@@ -28,7 +28,9 @@ public class Item : MonoBehaviour
         player.currentScore += scoreValue;
         if (itemType == ItemType.Wide || itemType == ItemType.Speed || itemType == ItemType.FinalSword)
             player.ChangeForm(targetForm);
-        AudioManager.Instance.PlaySE(hitSE);
+        // 最終イベントでは、取得以降にSEを鳴らさない仕様です。
+        if (itemType != ItemType.FinalSword)
+            AudioManager.Instance.PlaySE(hitSE);
         gameObject.SetActive(false);
         Destroy(gameObject);
     }

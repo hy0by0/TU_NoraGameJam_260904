@@ -25,4 +25,12 @@ public class AudioManager : MonoBehaviour
     {
         seSource.PlayOneShot(clip);
     }
+
+    /// <summary>
+    /// 最終イベントなど、以降のSEを完全に止める場面で再生中のSEを停止します。
+    /// </summary>
+    public void StopSE()
+    {
+        seSource.Stop();
+    }
 }
