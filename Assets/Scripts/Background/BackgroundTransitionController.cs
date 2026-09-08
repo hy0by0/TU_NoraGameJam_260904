@@ -41,6 +41,7 @@ public class BackgroundTransitionController : MonoBehaviour
     [Header("切り替え可能な背景")]
     [SerializeField] private List<BackgroundSet> backgroundSets = new List<BackgroundSet>();
     [SerializeField, Min(0)] private int initialBackgroundSetIndex;
+    [SerializeField, Min(0), InspectorName("ゲームオーバー背景セット番号")] private int gameOverBackgroundSetIndex = 3;
 
     public int CurrentBackgroundSetIndex { get; private set; }
 
@@ -151,6 +152,14 @@ public class BackgroundTransitionController : MonoBehaviour
     public void SwitchParallaxSetImmediate(int parallaxSetIndex)
     {
         parallaxController.ApplySet(parallaxSetIndex);
+    }
+
+    /// <summary>
+    /// Inspectorで指定したゲームオーバー用背景へクロスフェードします。
+    /// </summary>
+    public void TransitionToGameOverBackground()
+    {
+        SwitchBackgroundCrossFade(gameOverBackgroundSetIndex);
     }
 
     /// <summary>

@@ -42,6 +42,8 @@ public class GameMusicController : MusicConductor
     public bool HasPlaybackStarted => state == PlaybackState.Playing || (state == PlaybackState.Paused && !pausedDuringPreRoll);
     public bool IsStopped => state == PlaybackState.Stopped;
     public bool IsFinished => state == PlaybackState.Finished;
+    public float CurrentPitch => bgmSource.pitch;
+    public bool IsAudioPlaying => bgmSource.isPlaying;
     public override bool IsGameRunning => state == PlaybackState.Playing;
     public float PreRollRemainingSeconds => state == PlaybackState.Paused && pausedDuringPreRoll
         ? (float)pausedPreRollSeconds
@@ -208,7 +210,7 @@ public class GameMusicController : MusicConductor
         while (elapsed < durationSeconds)
         {
             elapsed += Time.unscaledDeltaTime;
-            bgmSource.pitch = Mathf.Lerp(startPitch, 0.01f, elapsed / durationSeconds);
+            bgmSource.pitch = Mathf.Lerp(startPitch, 0f, elapsed / durationSeconds);
             yield return null;
         }
 

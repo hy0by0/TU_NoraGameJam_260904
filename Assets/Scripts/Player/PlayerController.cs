@@ -66,10 +66,12 @@ public class PlayerController : MonoBehaviour
     private InputSystem_Actions inputActions;
     private Vector2 moveInput;
     private bool isFinalEventActive;
+    private bool isGameplayEnabled = true;
 
     public bool DidHitThisAttack => didHitThisAttack;
     public EnemyType LastHitEnemyType => lastHitEnemyType;
     public bool IsFinalEventActive => isFinalEventActive;
+    public bool IsGameplayEnabled => isGameplayEnabled;
 
 
     /// <summary>
@@ -91,7 +93,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        inputActions.Player.Enable();
+        if (isGameplayEnabled)
+        {
+            inputActions.Player.Enable();
+        }
         RefreshAnimation();
     }
 
@@ -118,6 +123,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (!isGameplayEnabled)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         if (isFinalEventActive)
         {
             moveInput = Vector2.zero;
@@ -141,6 +152,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        if (!isGameplayEnabled)
+        {
+            playerRigidbody.linearVelocity = Vector2.zero;
+            return;
+        }
+
         if (isFinalEventActive)
         {
             playerRigidbody.linearVelocity = Vector2.zero;
@@ -332,6 +349,32 @@ public class PlayerController : MonoBehaviour
         isDamaged = false;
         isFinalEventActive = true;
         moveInput = Vector2.zero;
+        playerRigidbody.linearVelocity = Vector2.zero;
+        RefreshAnimation();
+    }
+
+    /// <summary>
+    /// ゲーム進行から入力と移動を一括で有効・無効にします。
+    /// </summary>
+    public void SetGameplayEnabled(bool isEnabled)
+    {
+        isGameplayEnabled = isEnabled;
+
+        if (isEnabled)
+        {
+            inputActions.Player.Enable();
+            return;
+        }
+
+        inputActions.Player.Disable();
+        StopAllCoroutines();
+        moveInput = Vector2.zero;
+        isAttacking = false;
+        isAttackLocked = false;
+        isAttackDisabled = true;
+        attackHitBox.gameObject.SetActive(false);
+        slashEffect.Hide();
+        beamAttack.End();
         playerRigidbody.linearVelocity = Vector2.zero;
         RefreshAnimation();
     }
