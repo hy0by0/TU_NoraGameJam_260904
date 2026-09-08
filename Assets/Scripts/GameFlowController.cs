@@ -22,6 +22,7 @@ public class GameFlowController : MonoBehaviour
     [SerializeField] private StageProgressController stageProgressController;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private FinalEventController finalEventController;
+    [SerializeField] private ScoreRankingSender scoreRankingSender;
 
     [Header("カメラ・背景の参照")]
     [SerializeField] private GameCameraController cameraController;
@@ -120,6 +121,7 @@ public class GameFlowController : MonoBehaviour
     {
         CurrentState = GameFlowState.Finished;
         StopGameplaySystems();
+        scoreRankingSender.SubmitCurrentScore();
         gameplayUiRoot.SetActive(true);
         cameraController.ShowResult();
         hudTransition.Hide();

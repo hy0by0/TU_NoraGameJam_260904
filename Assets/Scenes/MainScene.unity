@@ -637,7 +637,11 @@ MonoBehaviour:
   CameraDistance: 10
   DeadZoneDepth: 0
   Composition:
+<<<<<<< Updated upstream
     ScreenPosition: {x: -0.1125, y: 0.151}
+=======
+    ScreenPosition: {x: -0.4, y: 0.151}
+>>>>>>> Stashed changes
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -662,7 +666,11 @@ Transform:
   m_GameObject: {fileID: 130928809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: 0, y: 0, z: -10}
+=======
+  m_LocalPosition: {x: 5.111111, y: 0.00000023841858, z: -10}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5944,6 +5952,67 @@ MonoBehaviour:
   durationSeconds: 2
   easing: 4
   pingPong: 1
+--- !u!1001 &1036049180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516383865773776201, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336439062694548224, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: HmacKey
+      value: zEdqlTu0tq0p/0WEPkrtvNzk/vW+GzAykY0wjHR7dcqausR5xbtuko28zRgH/JE/nf2XMG8smwzImBPifCtkwA==
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323818951622561360, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
+      propertyPath: m_Name
+      value: UnityroomApiClient
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
 --- !u!1 &1058277641
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,6 +6222,7 @@ GameObject:
   - component: {fileID: 1126386251}
   - component: {fileID: 1126386250}
   - component: {fileID: 1126386252}
+  - component: {fileID: 1126386253}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6205,6 +6275,7 @@ MonoBehaviour:
   stageProgressController: {fileID: 251235485}
   playerController: {fileID: 1094879443}
   finalEventController: {fileID: 1083757352}
+  scoreRankingSender: {fileID: 1126386253}
   cameraController: {fileID: 1828561443}
   cameraFollowTarget: {fileID: 262335595}
   parallaxController: {fileID: 2099892604}
@@ -6215,6 +6286,21 @@ MonoBehaviour:
   resultTransition: {fileID: 606699426}
   postProcessTransitionController: {fileID: 510349578}
   gameOverSlowStopDuration: 1.5
+--- !u!114 &1126386253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126386249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0279253ac46ba45ad64f9cbdd13e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreRankingSender
+  boardNo: 1
+  writeMode: 0
+  playerController: {fileID: 1094879443}
 --- !u!1 &1136879301
 GameObject:
   m_ObjectHideFlags: 0
@@ -12010,3 +12096,4 @@ SceneRoots:
   - {fileID: 1733747512}
   - {fileID: 2022194482}
   - {fileID: 510349579}
+  - {fileID: 1036049180}
