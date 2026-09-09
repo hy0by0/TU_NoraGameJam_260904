@@ -1497,7 +1497,7 @@ MonoBehaviour:
   sequenceEvents:
   - eventName: "\u540C\u62CD\u78BA\u8A8D_\u30ED\u30B0_\u5B9F\u884C\u98060"
     timing:
-      bar: 1
+      bar: 10
       beat: 1
       subdivision: 1
     isEnabled: 1
@@ -1518,118 +1518,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventName: "\u540C\u62CD\u78BA\u8A8D_UGUI\u8868\u793A_\u5B9F\u884C\u980610"
-    timing:
-      bar: 1
-      beat: 1
-      subdivision: 1
-    isEnabled: 1
-    executionOrder: 10
-    executeOnce: 1
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 251235483}
-          m_TargetAssemblyTypeName: SongSequenceDebugTarget, Assembly-CSharp
-          m_MethodName: LogSecondSameTimingEvent
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 251235483}
-          m_TargetAssemblyTypeName: SongSequenceDebugTarget, Assembly-CSharp
-          m_MethodName: ShowTestDisplay
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2034115706}
-          m_TargetAssemblyTypeName: UITransitionController, Assembly-CSharp
-          m_MethodName: ShowFadeAndSlide
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 510349578}
-          m_TargetAssemblyTypeName: PostProcessTransitionController, Assembly-CSharp
-          m_MethodName: TransitionToBrightAdaptation
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventName: "UGUI\u975E\u8868\u793A_2\u5C0F\u7BC0\u76EE1\u62CD\u76EE"
-    timing:
-      bar: 2
-      beat: 1
-      subdivision: 1
-    isEnabled: 1
-    executionOrder: 0
-    executeOnce: 1
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 251235483}
-          m_TargetAssemblyTypeName: SongSequenceDebugTarget, Assembly-CSharp
-          m_MethodName: HideTestDisplay
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2034115706}
-          m_TargetAssemblyTypeName: UITransitionController, Assembly-CSharp
-          m_MethodName: HideFadeAndSlide
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 510349578}
-          m_TargetAssemblyTypeName: PostProcessTransitionController, Assembly-CSharp
-          m_MethodName: TransitionToNormal
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventName: "\u30AB\u30E1\u30E9\u5207\u308A\u66FF\u3048_Intro\u304B\u3089Gameplay"
     timing:
       bar: 2
       beat: 1
       subdivision: 1
-    isEnabled: 1
+    isEnabled: 0
     executionOrder: 10
     executeOnce: 1
     unityEvent:
@@ -2009,7 +1903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d393f1abf7425c42bca5c34b645d34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollowTarget
-  playerFollowTarget: {fileID: 1377215858}
+  playerFollowTarget: {fileID: 1945363903}
   stageStartPosition: {x: -2, y: -1.51, z: 0}
 --- !u!1001 &285879469
 PrefabInstance:
@@ -5364,7 +5258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4336439062694548224, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
       propertyPath: HmacKey
-      value: zEdqlTu0tq0p/0WEPkrtvNzk/vW+GzAykY0wjHR7dcqausR5xbtuko28zRgH/JE/nf2XMG8smwzImBPifCtkwA==
+      value: B4o67uczzSjB0THnGkiD7ocCStzEnojiY75OY7/Lozxc4C5+VY2L6TNKXo5fq3a2lCkPVdoTwo3ovuNuAwxkFQ==
       objectReference: {fileID: 0}
     - target: {fileID: 5323818951622561360, guid: 00ae2bf8c8a624ed38161cab9eeda7f7, type: 3}
       propertyPath: m_Name
@@ -6715,11 +6609,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1377215858 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6982972360142112471, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
-  m_PrefabInstance: {fileID: 3927650729743400035}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1392933514
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,6 +9426,11 @@ MonoBehaviour:
   durationSeconds: 2
   easing: 4
   pingPong: 1
+--- !u!4 &1945363903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6982972360142112471, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
+  m_PrefabInstance: {fileID: 3927650729743400035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1953084255
 GameObject:
   m_ObjectHideFlags: 0
@@ -10550,18 +10444,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 693385843058257878, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
-      propertyPath: normalHitSE
-      value: 
-      objectReference: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
-    - target: {fileID: 693385843058257878, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
-      propertyPath: enhancedHitSE
-      value: 
-      objectReference: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
-    - target: {fileID: 693385843058257878, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
-      propertyPath: enhancedMissSE
-      value: 
-      objectReference: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
-    - target: {fileID: 693385843058257878, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
       propertyPath: musicConductor
       value: 
       objectReference: {fileID: 251235481}
@@ -10574,19 +10456,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 251235481}
     - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
+      propertyPath: fadeStartBeatTiming.bar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
       propertyPath: stageProgressController
       value: 
       objectReference: {fileID: 251235485}
     - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
       propertyPath: inputStartBeatTiming.bar
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
-      propertyPath: entranceStartBeatTiming.bar
-      value: 1
+      propertyPath: fadeCompleteBeatTiming.bar
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 763829969187017947, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}
-      propertyPath: referenceArrivalBeatTiming.bar
+      propertyPath: fadeCompleteBeatTiming.beat
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1423028098460152163, guid: 2192dd6194f882a468f5adbaf14341c3, type: 3}

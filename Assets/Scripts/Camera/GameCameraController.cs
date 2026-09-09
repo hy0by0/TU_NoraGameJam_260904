@@ -30,11 +30,11 @@ public class GameCameraController : MonoBehaviour
     public CameraMode CurrentMode { get; private set; }
 
     /// <summary>
-    /// シーン開始時はIntroCameraを有効にします。
+    /// シーン開始時から音楽進行へ追従するGameplayCameraを有効にします。
     /// </summary>
     private void Awake()
     {
-        ShowIntro();
+        ShowGameplay();
     }
 
     /// <summary>

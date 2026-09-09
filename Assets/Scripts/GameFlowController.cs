@@ -55,7 +55,7 @@ public class GameFlowController : MonoBehaviour
         cameraFollowTarget.SetFollowingEnabled(true);
         parallaxController.SetScrollingEnabled(true);
         gameplayUiRoot.SetActive(true);
-        cameraController.ShowIntro();
+        cameraController.ShowGameplay();
         hudTransition.ShowImmediate();
         gameOverTransition.HideImmediate();
         resultTransition.HideImmediate();

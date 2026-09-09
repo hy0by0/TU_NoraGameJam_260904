@@ -633,11 +633,14 @@ MonoBehaviour:
   animationController: {fileID: 4984378620378416682}
   musicConductor: {fileID: 0}
   entranceController: {fileID: 763829969187017947}
+  verticalLowerLimit: -4
+  verticalUpperLimit: 4
   attackDurationBeats: 0.5
   attackIntervalBeats: 0
   attackHitBox: {fileID: 6264908402657906076}
   slashEffect: {fileID: 3770589614982855681}
   beamAttack: {fileID: 2062822554987070212}
+  finalEventController: {fileID: 0}
   damageCollider: {fileID: 2844352386042581001}
   maxLife: 6
   currentLife: 6
@@ -695,11 +698,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14437205c519c04dbd31f3168f1edca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEntranceController
-  entranceStartBeatTiming:
+  fadeStartBeatTiming:
     bar: 1
     beat: 1
     subdivision: 1
-  referenceArrivalBeatTiming:
+  fadeCompleteBeatTiming:
     bar: 1
     beat: 1
     subdivision: 1
@@ -707,9 +710,8 @@ MonoBehaviour:
     bar: 1
     beat: 1
     subdivision: 1
-  offscreenStartPosition: {x: -12, y: -1.51, z: 0}
   gameplayReferencePosition: {x: -2, y: -1.51, z: 0}
-  movementCurve:
+  fadeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -733,45 +735,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  entranceScaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.8
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.75
-      value: 1.08
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   songDefinition: {fileID: 11400000, guid: a25c7590d19cddc429640a7f0cdf00ef, type: 2}
   musicController: {fileID: 0}
   stageProgressController: {fileID: 0}
-  playerBeatAnchor: {fileID: 6982972360142112471}
-  visualRoot: {fileID: 7528353673440687329}
-  playerRigidbody: {fileID: 6532994379306523814}
+  playerRenderer: {fileID: 3073152979483321428}
 --- !u!114 &568753044265051807
 MonoBehaviour:
   m_ObjectHideFlags: 0
