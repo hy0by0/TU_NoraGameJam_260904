@@ -1467,85 +1467,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &548636932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 548636933}
-  - component: {fileID: 548636935}
-  - component: {fileID: 548636934}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &548636933
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548636932}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1148025653}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &548636934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548636932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 511fe52c780b97748bb99c43241e4439, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "\u306F\u3058\u3081\u308B"
---- !u!222 &548636935
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548636932}
-  m_CullTransparentMesh: 1
 --- !u!1 &549707812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +2422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 931954980}
+  - component: {fileID: 931954981}
   m_Layer: 0
   m_Name: FarLayer
   m_TagString: Untagged
@@ -2530,6 +2452,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &931954981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931954979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606bf9324dda7434ca35915ad80d647f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleBackgroundLoopController
+  loopRoot: {fileID: 931954980}
+  loopWidth: 1920
+  scrollSpeed: 30
+  moveDirection: {x: -1, y: 0}
 --- !u!1 &952967202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,6 +2640,7 @@ GameObject:
   - component: {fileID: 1148025656}
   - component: {fileID: 1148025655}
   - component: {fileID: 1148025654}
+  - component: {fileID: 1148025657}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2720,14 +2659,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 548636933}
+  m_Children: []
   m_Father: {fileID: 457791496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -368, y: -45}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 230, y: 105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148025654
 MonoBehaviour:
@@ -2748,7 +2686,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2805,9 +2743,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: a8eb6ba620688b948b69dfe74bbd3f4d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2823,6 +2761,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148025652}
   m_CullTransparentMesh: 1
+--- !u!114 &1148025657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148025652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d14819968fc16b4399d1b6439e81135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleButtonFeedback
+  targetRectTransform: {fileID: 1148025653}
+  hoverSe: {fileID: 8300000, guid: 3250fa487df863648bbccb9ad376c537, type: 3}
+  clickSe: {fileID: 8300000, guid: 8c327591b699a064abd3c1b6a76cece9, type: 3}
+  hoverScale: 1.08
+  scaleDuration: 0.15
 --- !u!1 &1216536138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3786,7 +3741,6 @@ GameObject:
   - component: {fileID: 1977307544}
   - component: {fileID: 1977307543}
   - component: {fileID: 1977307542}
-  - component: {fileID: 1977307541}
   m_Layer: 0
   m_Name: BackgroundSystems
   m_TagString: Untagged
@@ -3794,46 +3748,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1977307541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977307540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ba28d8033d5b24aab55b9fa9f3ce1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundTransitionController
-  titleReplicaBackground: {fileID: 581381431}
-  fixedBackgroundCurrent: {fileID: 1911631795}
-  fixedBackgroundNext: {fileID: 882236345}
-  parallaxBackgroundCanvasGroup: {fileID: 1981489605}
-  parallaxController: {fileID: 1981489603}
-  flashOverlay: {fileID: 966641457}
-  crossFadeDuration: 1
-  flashInDuration: 0.12
-  flashOutDuration: 0.28
-  backgroundSets:
-  - backgroundName: "\u80CC\u666F1"
-    fixedBackgroundSprite: {fileID: 21300000, guid: 65b8eb0963600ea4e926c65d4fc14554, type: 3}
-    parallaxSetIndex: 0
-  - backgroundName: "\u80CC\u666F2"
-    fixedBackgroundSprite: {fileID: 21300000, guid: ab1156084d2da5645a69a3c95503f839, type: 3}
-    parallaxSetIndex: 1
-  - backgroundName: "\u80CC\u666F3"
-    fixedBackgroundSprite: {fileID: 21300000, guid: e4258a5b90457e7428e362740f8bfc70, type: 3}
-    parallaxSetIndex: 2
-  - backgroundName: "\u30A4\u30F3\u30BF\u30FC\u30D0\u30EB"
-    fixedBackgroundSprite: {fileID: 21300000, guid: 9a33d443cece4e945a30ba1819e5f305, type: 3}
-    parallaxSetIndex: 0
-  - backgroundName: "\u30E9\u30B9\u30C8\u30B9\u30C1\u30EB1"
-    fixedBackgroundSprite: {fileID: 21300000, guid: 9a33d443cece4e945a30ba1819e5f305, type: 3}
-    parallaxSetIndex: 2
-  initialBackgroundSetIndex: 0
-  showBackgroundSetOnAwake: 1
-  gameOverBackgroundSetIndex: 3
 --- !u!114 &1977307542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,7 +3827,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1981489604}
   - component: {fileID: 1981489605}
-  - component: {fileID: 1981489603}
   m_Layer: 0
   m_Name: ParallaxBackgroundRoot
   m_TagString: Untagged
@@ -3921,69 +3834,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1981489603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981489602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9fb4ddb45a320f44ba68acc65c9322a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxController
-  stageProgressController: {fileID: 0}
-  songDefinition: {fileID: 11400000, guid: a25c7590d19cddc429640a7f0cdf00ef, type: 2}
-  initialSpeedMultipliers: {x: 1, y: 0, z: 0}
-  speedCues: []
-  farLayer:
-    layerName: "\u9060\u666F"
-    layerRoot: {fileID: 931954980}
-    loopImages:
-    - {fileID: 494603098}
-    - {fileID: 667725826}
-    - {fileID: 1246847217}
-    scrollMultiplier: 20
-    loopImageWidth: 1920
-    moveDirection: {x: -1, y: 0}
-    initialPosition: {x: 0, y: 0}
-  middleLayer:
-    layerName: "\u4E2D\u666F"
-    layerRoot: {fileID: 1689898130}
-    loopImages:
-    - {fileID: 1935227524}
-    - {fileID: 750270739}
-    - {fileID: 435615233}
-    scrollMultiplier: 14
-    loopImageWidth: 1920
-    moveDirection: {x: -1, y: 0}
-    initialPosition: {x: 0, y: 0}
-  nearLayer:
-    layerName: "\u8FD1\u666F"
-    layerRoot: {fileID: 1988898663}
-    loopImages:
-    - {fileID: 562022463}
-    - {fileID: 235368348}
-    - {fileID: 1548118646}
-    scrollMultiplier: 28
-    loopImageWidth: 1920
-    moveDirection: {x: -1, y: 0}
-    initialPosition: {x: 0, y: 0}
-  backgroundSets:
-  - setName: "\u80CC\u666F1"
-    farSprite: {fileID: 21300000, guid: 39445bb5c0d347a4588fed265859d5bd, type: 3}
-    middleSprite: {fileID: 21300000, guid: 1ddf6c5c564c16547958b520aa9b7fc2, type: 3}
-    nearSprite: {fileID: 21300000, guid: 1ddf6c5c564c16547958b520aa9b7fc2, type: 3}
-  - setName: "\u80CC\u666F2"
-    farSprite: {fileID: 21300000, guid: db2cd77ee4c7c8e4fba16e2009ead281, type: 3}
-    middleSprite: {fileID: 21300000, guid: db2cd77ee4c7c8e4fba16e2009ead281, type: 3}
-    nearSprite: {fileID: 21300000, guid: db2cd77ee4c7c8e4fba16e2009ead281, type: 3}
-  - setName: "\u80CC\u666F3"
-    farSprite: {fileID: 21300000, guid: b95fb3ad7b7b66e4e8274fa301f4be59, type: 3}
-    middleSprite: {fileID: 21300000, guid: b95fb3ad7b7b66e4e8274fa301f4be59, type: 3}
-    nearSprite: {fileID: 21300000, guid: b95fb3ad7b7b66e4e8274fa301f4be59, type: 3}
-  initialSetIndex: 0
 --- !u!224 &1981489604
 RectTransform:
   m_ObjectHideFlags: 0
