@@ -3,20 +3,31 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// GameOverまたはResultの全画面UGUI ButtonからMainSceneを再読み込みするクラスです。
+/// GameOverまたはResultの全画面UGUI Buttonから、Inspectorで選んだシーンへ遷移するクラスです。
 /// </summary>
 [RequireComponent(typeof(Button))]
 public class RetryButton : MonoBehaviour
 {
-    [Header("再読み込み設定")]
-    [SerializeField] private string mainSceneName = "MainScene";
+    /// <summary>
+    /// Build Settingsへ登録済みの遷移先候補です。
+    /// </summary>
+    public enum SceneDestination
+    {
+        Title,
+        MainScene
+    }
+
+    [Header("画面遷移設定")]
+    [SerializeField, InspectorName("遷移先シーン")] private SceneDestination destinationScene = SceneDestination.MainScene;
 
     private bool isLoading;
 
+    public SceneDestination DestinationScene => destinationScene;
+
     /// <summary>
-    /// Buttonのクリックを受け取り、重複読込を防ぎながらMainSceneを再読み込みします。
+    /// Buttonのクリックを受け取り、重複読込を防ぎながら選択されたシーンを読み込みます。
     /// </summary>
-    public void RetryMainScene()
+    public void LoadSelectedScene()
     {
         if (isLoading)
         {
@@ -25,6 +36,14 @@ public class RetryButton : MonoBehaviour
 
         isLoading = true;
         GetComponent<Button>().interactable = false;
-        SceneManager.LoadSceneAsync(mainSceneName);
+        SceneManager.LoadSceneAsync(destinationScene.ToString());
+    }
+
+    /// <summary>
+    /// 既存のButtonイベント参照を維持するため、選択されたシーンへ遷移します。
+    /// </summary>
+    public void RetryMainScene()
+    {
+        LoadSelectedScene();
     }
 }
