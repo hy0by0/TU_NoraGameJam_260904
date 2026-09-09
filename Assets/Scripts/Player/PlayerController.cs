@@ -142,11 +142,17 @@ public class PlayerController : MonoBehaviour
             moveInput = Vector2.zero;
             return;
         }
+
+        if (!entranceController.IsInputEnabled)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         moveInput = inputActions.Player.Move.ReadValue<Vector2>();
 
         // Input Actions の Attack に割り当てられた左クリックで攻撃します。
-        if (entranceController.IsInputEnabled
-            && inputActions.Player.Attack.WasPressedThisFrame()
+        if (inputActions.Player.Attack.WasPressedThisFrame()
             && !isAttackLocked
             && !isAttackDisabled)
         {
@@ -156,7 +162,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 登場完了後、ステージ進行X座標と上下入力をまとめてRigidbody2Dへ反映します。
+    /// X座標は常にステージ進行へ追従させ、操作開始後だけ上下入力を反映します。
     /// </summary>
     private void FixedUpdate()
     {
@@ -171,13 +177,11 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.linearVelocity = Vector2.zero;
             return;
         }
-        if (!entranceController.IsInputEnabled || !entranceController.HasReachedReferencePosition)
+        float targetY = playerRigidbody.position.y;
+        if (entranceController.IsInputEnabled)
         {
-            playerRigidbody.linearVelocity = Vector2.zero;
-            return;
+            targetY += moveInput.y * moveSpeed * Time.fixedDeltaTime;
         }
-
-        float targetY = playerRigidbody.position.y + moveInput.y * moveSpeed * Time.fixedDeltaTime;
         targetY = Mathf.Clamp(targetY, verticalLowerLimit, verticalUpperLimit);
         Vector2 targetPosition = new Vector2(entranceController.GameplayWorldX, targetY);
         playerRigidbody.MovePosition(targetPosition);
@@ -446,7 +450,8 @@ public class PlayerController : MonoBehaviour
     {
         //被弾時
         // 攻撃範囲から親Rigidbody2Dへ届いた通知を、本体の被弾と取り違えないようにします。
-        if (collision.CompareTag("Enemy") && !isDamaged && !isFinalEventActive && damageCollider.IsTouching(collision))
+        if (entranceController.IsInputEnabled && collision.CompareTag("Enemy")
+            && !isDamaged && !isFinalEventActive && damageCollider.IsTouching(collision))
         {
             Debug.Log("Player hit by enemy!");
             currentLife = Mathf.Max(0, currentLife - 1);

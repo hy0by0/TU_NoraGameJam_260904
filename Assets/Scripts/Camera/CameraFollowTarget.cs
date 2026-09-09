@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Playerの補間後X座標を使い、上下固定のCinemachine追従点を管理するクラスです。
+/// PlayerのRigidbody2D補間後X座標を使い、上下固定のCinemachine追従点を管理するクラスです。
 /// </summary>
 [DefaultExecutionOrder(-750)]
 public class CameraFollowTarget : MonoBehaviour
