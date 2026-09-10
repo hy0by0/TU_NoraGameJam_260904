@@ -635,7 +635,7 @@ MonoBehaviour:
   entranceController: {fileID: 763829969187017947}
   verticalLowerLimit: -4
   verticalUpperLimit: 4
-  attackDurationBeats: 0.5
+  attackDurationBeats: 0.01
   attackIntervalBeats: 0
   attackHitBox: {fileID: 6264908402657906076}
   slashEffect: {fileID: 3770589614982855681}

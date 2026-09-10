@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("参照（Inspectorから設定）")]
     [SerializeField] private GameMusicController musicController;
-    [SerializeField] private Rigidbody2D enemyRigidbody;
+    private Rigidbody2D enemyRigidbody;
     [Header("開始位置とタイミング")]
     [SerializeField] private bool usePlacedPosition = true;
     [SerializeField] private Vector2 startPosition;
@@ -24,9 +24,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private bool pingPong = true;
     private Vector2 origin;
 
-    // シーン配置位置または明示したワールド座標を移動の基準にします。
+    // 自身のRigidbody2Dを取得し、シーン配置位置または明示したワールド座標を移動の基準にします。
     private void Awake()
     {
+        enemyRigidbody = GetComponent<Rigidbody2D>();
         origin = usePlacedPosition ? enemyRigidbody.position : startPosition;
         enemyRigidbody.position = origin;
     }

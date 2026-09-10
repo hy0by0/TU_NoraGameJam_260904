@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // プレイヤーの形態名です。FiveHitは5連撃、Beamはビームを使用します。
 public enum PlayerFormKind { Normal, FiveHit, Beam, Finale }
@@ -22,18 +23,22 @@ public class PlayerFormDefinition : ScriptableObject
     private float comboCooldownBeats = 1f;
 
     [Header("ビーム（Beamのみ）")]
-    [SerializeField, Min(0.01f)] private float beamDurationBeats = 0.35f;
-    [SerializeField, Min(0.001f)] private float beamExtendBeats = 0.08f;
+    [FormerlySerializedAs("beamDurationBeats")]
+    [SerializeField, Min(0.01f), InspectorName("表示・アニメーション時間（拍）"),
+     Tooltip("瞬間判定後も、ビームが表示されて徐々に細くなる時間です。攻撃判定時間には影響しません。")]
+    private float beamVisualDurationBeats = 0.5f;
+    [SerializeField, Min(0.001f), InspectorName("発射光の表示時間（拍）")]
+    private float beamExtendBeats = 0.08f;
     [SerializeField, Min(0f)] private float beamCooldownBeats = 1f;
     [SerializeField, Min(0.01f), Tooltip("ワールド単位の最大射程です。")]
     private float beamLength = 8f;
-    [SerializeField, Min(0.01f), Tooltip("ワールド単位の最大の太さです。見た目と判定を一緒に縮めます。")]
+    [SerializeField, Min(0.01f), Tooltip("ワールド単位の最大の太さです。瞬間判定にはこの太さを使い、表示だけ徐々に細くなります。")]
     private float beamThickness = 0.8f;
     [SerializeField, Min(0f)] private float beamSingleKillMultiplier = 1f;
     [SerializeField, Min(0f)] private float beamMultiKillMultiplier = 3f;
 
-    public float BeamDurationBeats => Mathf.Max(0.01f, beamDurationBeats);
-    public float BeamExtendBeats => Mathf.Clamp(beamExtendBeats, 0.001f, BeamDurationBeats);
+    public float BeamVisualDurationBeats => Mathf.Max(0.01f, beamVisualDurationBeats);
+    public float BeamExtendBeats => Mathf.Clamp(beamExtendBeats, 0.001f, BeamVisualDurationBeats);
     public float BeamCooldownBeats => Mathf.Max(0f, beamCooldownBeats);
     public float BeamLength => Mathf.Max(0.01f, beamLength);
     public float BeamThickness => Mathf.Max(0.01f, beamThickness);

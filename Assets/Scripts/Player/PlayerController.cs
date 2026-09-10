@@ -286,7 +286,7 @@ public class PlayerController : MonoBehaviour
         didHitThisAttack = false;
         attackForm = formController.Current;
         attackStartedAt = musicConductor.PlaybackTimeSeconds;
-        activeAttackDuration = musicConductor.BeatsToSeconds(attackForm.BeamDurationBeats);
+        activeAttackDuration = musicConductor.BeatsToSeconds(attackForm.BeamVisualDurationBeats);
         activeAttackInterval = musicConductor.BeatsToSeconds(attackForm.BeamCooldownBeats);
         RefreshAnimation();
         beamAttack.Begin(attackForm);
