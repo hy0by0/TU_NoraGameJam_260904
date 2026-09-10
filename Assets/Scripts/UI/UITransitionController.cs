@@ -31,6 +31,7 @@ public class UITransitionController : MonoBehaviour
     [SerializeField] private bool visibleOnAwake;
 
     private Vector2 visiblePosition;
+    private Vector3 visibleScale;
 
     /// <summary>
     /// シーンに配置された位置を表示位置として記録し、初期表示状態を反映します。
@@ -38,6 +39,7 @@ public class UITransitionController : MonoBehaviour
     private void Awake()
     {
         visiblePosition = targetRectTransform.anchoredPosition;
+        visibleScale = targetRectTransform.localScale;
         SetVisibleImmediate(visibleOnAwake);
     }
 
@@ -109,12 +111,12 @@ public class UITransitionController : MonoBehaviour
 
         if (style == TransitionStyle.Scale)
         {
-            targetRectTransform.localScale = Vector3.one * hiddenScale;
-            targetRectTransform.DOScale(Vector3.one, duration).SetEase(showEase).SetId(this);
+            targetRectTransform.localScale = visibleScale * hiddenScale;
+            targetRectTransform.DOScale(visibleScale, duration).SetEase(showEase).SetId(this);
         }
         else
         {
-            targetRectTransform.localScale = Vector3.one;
+            targetRectTransform.localScale = visibleScale;
         }
 
         if (UsesSlide(style))
@@ -143,7 +145,7 @@ public class UITransitionController : MonoBehaviour
 
         if (style == TransitionStyle.Scale)
         {
-            sequence.Join(targetRectTransform.DOScale(Vector3.one * hiddenScale, duration).SetEase(hideEase));
+            sequence.Join(targetRectTransform.DOScale(visibleScale * hiddenScale, duration).SetEase(hideEase));
         }
 
         if (UsesSlide(style))
@@ -164,7 +166,7 @@ public class UITransitionController : MonoBehaviour
         targetCanvasGroup.interactable = isVisible;
         targetCanvasGroup.blocksRaycasts = isVisible;
         targetRectTransform.anchoredPosition = visiblePosition;
-        targetRectTransform.localScale = Vector3.one;
+        targetRectTransform.localScale = visibleScale;
     }
 
     /// <summary>

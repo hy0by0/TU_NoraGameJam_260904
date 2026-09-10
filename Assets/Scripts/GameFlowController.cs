@@ -56,7 +56,8 @@ public class GameFlowController : MonoBehaviour
         parallaxController.SetScrollingEnabled(true);
         gameplayUiRoot.SetActive(true);
         cameraController.ShowGameplay();
-        hudTransition.ShowImmediate();
+        // 曲中イベントからフェードインさせるまで、HUDは非表示で待機させます。
+        hudTransition.HideImmediate();
         gameOverTransition.HideImmediate();
         resultTransition.HideImmediate();
         postProcessTransitionController.SetNormalImmediate();

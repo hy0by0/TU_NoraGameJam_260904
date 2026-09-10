@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -142,17 +142,11 @@ public class PlayerController : MonoBehaviour
             moveInput = Vector2.zero;
             return;
         }
-
-        if (!entranceController.IsInputEnabled)
-        {
-            moveInput = Vector2.zero;
-            return;
-        }
-
         moveInput = inputActions.Player.Move.ReadValue<Vector2>();
 
         // Input Actions の Attack に割り当てられた左クリックで攻撃します。
-        if (inputActions.Player.Attack.WasPressedThisFrame()
+        if (entranceController.IsInputEnabled
+            && inputActions.Player.Attack.WasPressedThisFrame()
             && !isAttackLocked
             && !isAttackDisabled)
         {
@@ -162,7 +156,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// X座標は常にステージ進行へ追従させ、操作開始後だけ上下入力を反映します。
+    /// 操作開始タイミング以降、ステージ進行X座標と上下入力をまとめてRigidbody2Dへ反映します。
     /// </summary>
     private void FixedUpdate()
     {
@@ -177,11 +171,14 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.linearVelocity = Vector2.zero;
             return;
         }
-        float targetY = playerRigidbody.position.y;
-        if (entranceController.IsInputEnabled)
+        // 現在は開始時から基準位置に配置されるため、操作開始タイミングだけを判定します。
+        if (!entranceController.IsInputEnabled)
         {
-            targetY += moveInput.y * moveSpeed * Time.fixedDeltaTime;
+            playerRigidbody.linearVelocity = Vector2.zero;
+            return;
         }
+
+        float targetY = playerRigidbody.position.y + moveInput.y * moveSpeed * Time.fixedDeltaTime;
         targetY = Mathf.Clamp(targetY, verticalLowerLimit, verticalUpperLimit);
         Vector2 targetPosition = new Vector2(entranceController.GameplayWorldX, targetY);
         playerRigidbody.MovePosition(targetPosition);
@@ -450,8 +447,7 @@ public class PlayerController : MonoBehaviour
     {
         //被弾時
         // 攻撃範囲から親Rigidbody2Dへ届いた通知を、本体の被弾と取り違えないようにします。
-        if (entranceController.IsInputEnabled && collision.CompareTag("Enemy")
-            && !isDamaged && !isFinalEventActive && damageCollider.IsTouching(collision))
+        if (collision.CompareTag("Enemy") && !isDamaged && !isFinalEventActive && damageCollider.IsTouching(collision))
         {
             Debug.Log("Player hit by enemy!");
             currentLife = Mathf.Max(0, currentLife - 1);

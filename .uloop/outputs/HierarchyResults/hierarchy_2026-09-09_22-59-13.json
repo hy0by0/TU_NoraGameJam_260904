@@ -1,0 +1,823 @@
+{
+  "ExportTimestamp": "2026-09-09 22:59:13",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "Title",
+    "nodeCount": 55,
+    "maxDepth": 4
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "Title",
+      "stats": {
+        "rootCount": 7,
+        "nodeCount": 55,
+        "maxDepth": 4
+      },
+      "componentsLut": [
+        "Transform",
+        "Camera",
+        "AudioListener",
+        "UniversalAdditionalCameraData",
+        "Light2D",
+        "RectTransform",
+        "Canvas",
+        "CanvasScaler",
+        "BackgroundTransitionController",
+        "CanvasRenderer",
+        "Image",
+        "CanvasGroup",
+        "ParallaxController",
+        "GraphicRaycaster",
+        "TitleFlowController",
+        "Button",
+        "Text",
+        "Slider",
+        "EventSystem",
+        "InputSystemUIInputModule",
+        "Volume",
+        "AudioManager",
+        "MusicConductor",
+        "AudioVolume",
+        "AudioSource"
+      ],
+      "roots": [
+        {
+          "name": "Main Camera",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "siblingIndex": 0,
+          "tag": "MainCamera",
+          "layer": 0,
+          "path": "Main Camera",
+          "children": []
+        },
+        {
+          "name": "Global Light 2D",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            4
+          ],
+          "siblingIndex": 1,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "Global Light 2D",
+          "children": []
+        },
+        {
+          "name": "BackgroundSystems",
+          "isActive": true,
+          "componentsIdx": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "siblingIndex": 2,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "BackgroundSystems",
+          "children": [
+            {
+              "name": "FixedBackgroundRoot",
+              "isActive": true,
+              "componentsIdx": [
+                5
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/FixedBackgroundRoot",
+              "children": [
+                {
+                  "name": "TitleReplicaBackground",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/TitleReplicaBackground",
+                  "children": []
+                },
+                {
+                  "name": "FixedBackgroundCurrent",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/FixedBackgroundCurrent",
+                  "children": []
+                },
+                {
+                  "name": "FixedBackgroundNext",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/FixedBackgroundRoot/FixedBackgroundNext",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ParallaxBackgroundRoot",
+              "isActive": true,
+              "componentsIdx": [
+                5,
+                11,
+                12
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/ParallaxBackgroundRoot",
+              "children": [
+                {
+                  "name": "FarLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer",
+                  "children": [
+                    {
+                      "name": "FarLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "FarLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "FarLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/FarLayer/FarLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "MiddleLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer",
+                  "children": [
+                    {
+                      "name": "MiddleLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "MiddleLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "MiddleLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/MiddleLayer/MiddleLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "NearLayer",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer",
+                  "children": [
+                    {
+                      "name": "NearLoopImage_0",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_0",
+                      "children": []
+                    },
+                    {
+                      "name": "NearLoopImage_1",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_1",
+                      "children": []
+                    },
+                    {
+                      "name": "NearLoopImage_2",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "path": "BackgroundSystems/ParallaxBackgroundRoot/NearLayer/NearLoopImage_2",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BackgroundTransitionOverlay",
+              "isActive": true,
+              "componentsIdx": [
+                5,
+                9,
+                10
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "BackgroundSystems/BackgroundTransitionOverlay",
+              "children": []
+            },
+            {
+              "name": "chara",
+              "isActive": true,
+              "componentsIdx": [
+                5,
+                9,
+                10
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "BackgroundSystems/chara",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Canvas",
+          "isActive": true,
+          "componentsIdx": [
+            5,
+            6,
+            7,
+            13,
+            14
+          ],
+          "siblingIndex": 3,
+          "tag": "Untagged",
+          "layer": 5,
+          "path": "Canvas",
+          "children": [
+            {
+              "name": "BackGround",
+              "isActive": false,
+              "componentsIdx": [
+                5,
+                9,
+                10
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/BackGround",
+              "children": []
+            },
+            {
+              "name": "BackGround (1)",
+              "isActive": false,
+              "componentsIdx": [
+                5,
+                9,
+                10
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/BackGround (1)",
+              "children": []
+            },
+            {
+              "name": "BackGround (2)",
+              "isActive": false,
+              "componentsIdx": [
+                5,
+                9,
+                10
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/BackGround (2)",
+              "children": []
+            },
+            {
+              "name": "chara",
+              "isActive": false,
+              "componentsIdx": [
+                5,
+                9,
+                10
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/chara",
+              "children": []
+            },
+            {
+              "name": "TitleMenuRoot",
+              "isActive": true,
+              "componentsIdx": [
+                5,
+                11
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "Canvas/TitleMenuRoot",
+              "children": [
+                {
+                  "name": "TItleLogo",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/TItleLogo",
+                  "children": []
+                },
+                {
+                  "name": "StartButton",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10,
+                    15
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/StartButton",
+                  "children": [
+                    {
+                      "name": "Text (Legacy)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        16
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/StartButton/Text (Legacy)",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "HowtoPlayButton",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10,
+                    15
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/HowtoPlayButton",
+                  "children": [
+                    {
+                      "name": "Text (Legacy)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        16
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/HowtoPlayButton/Text (Legacy)",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Option",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10,
+                    15
+                  ],
+                  "siblingIndex": 3,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/Option",
+                  "children": [
+                    {
+                      "name": "Text (Legacy)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        16
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/Option/Text (Legacy)",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "CreditButton",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10,
+                    15
+                  ],
+                  "siblingIndex": 4,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/CreditButton",
+                  "children": [
+                    {
+                      "name": "Text (Legacy)",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        16
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/CreditButton/Text (Legacy)",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Panel",
+                  "isActive": false,
+                  "componentsIdx": [
+                    5,
+                    9,
+                    10
+                  ],
+                  "siblingIndex": 5,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/Panel",
+                  "children": []
+                },
+                {
+                  "name": "BGMSlider",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    17
+                  ],
+                  "siblingIndex": 6,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/BGMSlider",
+                  "children": [
+                    {
+                      "name": "Background",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/BGMSlider/Background",
+                      "children": []
+                    },
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/BGMSlider/Fill Area",
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            5,
+                            9,
+                            10
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "path": "Canvas/TitleMenuRoot/BGMSlider/Fill Area/Fill",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Handle Slide Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/BGMSlider/Handle Slide Area",
+                      "children": [
+                        {
+                          "name": "Handle",
+                          "isActive": true,
+                          "componentsIdx": [
+                            5,
+                            9,
+                            10
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "path": "Canvas/TitleMenuRoot/BGMSlider/Handle Slide Area/Handle",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "SESlider",
+                  "isActive": true,
+                  "componentsIdx": [
+                    5,
+                    17
+                  ],
+                  "siblingIndex": 7,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "path": "Canvas/TitleMenuRoot/SESlider",
+                  "children": [
+                    {
+                      "name": "Background",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/SESlider/Background",
+                      "children": []
+                    },
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/SESlider/Fill Area",
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            5,
+                            9,
+                            10
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "path": "Canvas/TitleMenuRoot/SESlider/Fill Area/Fill",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Handle Slide Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        5
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "path": "Canvas/TitleMenuRoot/SESlider/Handle Slide Area",
+                      "children": [
+                        {
+                          "name": "Handle",
+                          "isActive": true,
+                          "componentsIdx": [
+                            5,
+                            9,
+                            10
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "path": "Canvas/TitleMenuRoot/SESlider/Handle Slide Area/Handle",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EventSystem",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            18,
+            19
+          ],
+          "siblingIndex": 4,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "EventSystem",
+          "children": []
+        },
+        {
+          "name": "Global Volume",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            20
+          ],
+          "siblingIndex": 5,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "Global Volume",
+          "children": []
+        },
+        {
+          "name": "AudioSystem",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            21,
+            22,
+            23
+          ],
+          "siblingIndex": 6,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "AudioSystem",
+          "children": [
+            {
+              "name": "BGMSource",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                24
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "AudioSystem/BGMSource",
+              "children": []
+            },
+            {
+              "name": "SESource",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                24
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "AudioSystem/SESource",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

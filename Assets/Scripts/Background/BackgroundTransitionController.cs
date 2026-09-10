@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// タイトル再現背景・固定背景・Parallax背景セットの切り替え演出を管理するクラスです。
 /// </summary>
+[DefaultExecutionOrder(-700)]
 public class BackgroundTransitionController : MonoBehaviour
 {
     /// <summary>
@@ -41,12 +42,13 @@ public class BackgroundTransitionController : MonoBehaviour
     [Header("切り替え可能な背景")]
     [SerializeField] private List<BackgroundSet> backgroundSets = new List<BackgroundSet>();
     [SerializeField, Min(0)] private int initialBackgroundSetIndex;
+    [SerializeField, InspectorName("開始直後から背景セットを表示")] private bool showBackgroundSetOnAwake;
     [SerializeField, Min(0), InspectorName("ゲームオーバー背景セット番号")] private int gameOverBackgroundSetIndex = 3;
 
     public int CurrentBackgroundSetIndex { get; private set; }
 
     /// <summary>
-    /// MainScene開始時はTitle Scene再現画像を前面に表示します。
+    /// MainScene開始時の表示方式と背景セットをInspectorから反映します。
     /// </summary>
     private void Awake()
     {
@@ -60,6 +62,10 @@ public class BackgroundTransitionController : MonoBehaviour
         flashOverlay.raycastTarget = false;
         parallaxController.ApplySet(initialSet.ParallaxSetIndex);
         CurrentBackgroundSetIndex = initialBackgroundSetIndex;
+        if (showBackgroundSetOnAwake)
+        {
+            TransitionFromTitleImmediate();
+        }
     }
 
     /// <summary>
