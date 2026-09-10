@@ -81,6 +81,22 @@ public class PlayerController : MonoBehaviour
     public bool IsFinalEventActive => isFinalEventActive;
     public bool IsGameplayEnabled => isGameplayEnabled;
 
+    /// <summary>
+    /// 指定量だけライフを回復し、最大ライフを超えないようにします。
+    /// </summary>
+    public void Heal(int amount)
+    {
+        currentLife = Mathf.Min(maxLife, currentLife + Mathf.Max(0, amount));
+    }
+
+    /// <summary>
+    /// 現在のライフを最大値まで回復します。
+    /// </summary>
+    public void HealFully()
+    {
+        currentLife = maxLife;
+    }
+
 
     /// <summary>
     /// 必要なコンポーネントと入力を初期化し、攻撃範囲を無効にします。

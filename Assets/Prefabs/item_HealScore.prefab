@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e58f8140fe31c4886a2d401bf9cd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemType: 0
+  itemType: 1
   scoreValue: 500
   hitSE: {fileID: 8300000, guid: 535026be0cf3afc45bd0e86c2c524ada, type: 3}
+  targetForm: {fileID: 0}
