@@ -15,7 +15,7 @@ MonoBehaviour:
   kind: 0
   moveSpeed: 10
   animations: {fileID: 22100000, guid: 02015c06d50989c4a92dac1c1f6328d3, type: 2}
-  hitSE: {fileID: 8300000, guid: 72448eaa7d4044d438f6058ef91741a7, type: 3}
+  hitSE: {fileID: 8300000, guid: dc685613074e5924f86a7a43d1df47ab, type: 3}
   missSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
   comboSpacingBeats: 0.25
   comboHitDurationBeats: 0.125

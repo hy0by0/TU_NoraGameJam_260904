@@ -16,7 +16,14 @@ MonoBehaviour:
   moveSpeed: 12
   animations: {fileID: 22100000, guid: ea1a2a33840aac746ad25723945223e7, type: 2}
   hitSE: {fileID: 8300000, guid: 35f038fe03100ea49ae021a015095640, type: 3}
-  missSE: {fileID: 8300000, guid: 48e64c1dc35e42247b0662c85a6c08cb, type: 3}
+  missSE: {fileID: 8300000, guid: 86ddb227982377c43bc580f9ad5c65c6, type: 3}
   comboSpacingBeats: 0.25
   comboHitDurationBeats: 0.125
   comboCooldownBeats: 1
+  beamDurationBeats: 0.35
+  beamExtendBeats: 0.08
+  beamCooldownBeats: 1
+  beamLength: 8
+  beamThickness: 0.8
+  beamSingleKillMultiplier: 1
+  beamMultiKillMultiplier: 3
