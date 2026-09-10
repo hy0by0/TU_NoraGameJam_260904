@@ -1,10 +1,10 @@
 using UnityEngine;
 
-// アイテムの取得を一度だけ処理し、加点・取得音・指定形態への変更を行います。
+// アイテムの取得を一度だけ処理し、加点・回復・取得音・指定形態への変更を行います。
 public class Item : MonoBehaviour
 {
     // 保存済みシーンとPrefabの番号を維持します。
-    public enum ItemType { Normal = 0, Heart = 1, Wide = 2, Speed = 3, FinalSword = 4 }
+    public enum ItemType { Normal = 0, Heart = 1, Wide = 2, Speed = 3, FinalSword = 4, FullHealSilent = 5 }
 
     public ItemType itemType;
     public int scoreValue = 100;
@@ -26,10 +26,14 @@ public class Item : MonoBehaviour
         if (isCollected) return;
         isCollected = true;
         player.currentScore += scoreValue;
+        if (itemType == ItemType.Heart)
+            player.Heal(1);
+        if (itemType == ItemType.FullHealSilent)
+            player.HealFully();
         if (itemType == ItemType.Wide || itemType == ItemType.Speed || itemType == ItemType.FinalSword)
             player.ChangeForm(targetForm);
-        // 最終イベントでは、取得以降にSEを鳴らさない仕様です。
-        if (itemType != ItemType.FinalSword)
+        // 最終アイテムと無音全回復アイテムではSEを鳴らしません。
+        if (itemType != ItemType.FinalSword && itemType != ItemType.FullHealSilent)
             AudioManager.Instance.PlaySE(hitSE);
         gameObject.SetActive(false);
         Destroy(gameObject);

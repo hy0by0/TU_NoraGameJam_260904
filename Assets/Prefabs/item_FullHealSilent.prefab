@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 637696362676891684}
   - component: {fileID: 3966472694298792082}
   m_Layer: 0
-  m_Name: item_HealScore
+  m_Name: item_FullHealSilent
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: 9
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2816930124506034dba5280979c05e18, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e58f8140fe31c4886a2d401bf9cd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemType: 1
-  scoreValue: 500
-  hitSE: {fileID: 8300000, guid: 535026be0cf3afc45bd0e86c2c524ada, type: 3}
+  itemType: 5
+  scoreValue: 0
+  hitSE: {fileID: 0}
   targetForm: {fileID: 0}
