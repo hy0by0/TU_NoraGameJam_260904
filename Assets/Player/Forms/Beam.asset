@@ -22,7 +22,7 @@ MonoBehaviour:
   comboCooldownBeats: 1
   beamVisualDurationBeats: 0.5
   beamExtendBeats: 0.09
-  beamCooldownBeats: 1
+  beamCooldownBeats: 3
   beamLength: 15.3
   beamThickness: 4.8
   beamSingleKillMultiplier: 1

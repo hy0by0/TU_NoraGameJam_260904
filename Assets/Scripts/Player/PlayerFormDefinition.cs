@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 // プレイヤーの形態名です。FiveHitは5連撃、Beamはビームを使用します。
 public enum PlayerFormKind { Normal, FiveHit, Beam, Finale }
 
-// 一つの形態の見た目・上下移動速度・攻撃音を保存する設定アセットです。
+// 一つの形態の見た目・上下移動速度・攻撃音・専用タイミングを保存する設定アセットです。
 [CreateAssetMenu(menuName = "Player/形態設定", fileName = "PlayerForm")]
 public class PlayerFormDefinition : ScriptableObject
 {
@@ -13,6 +13,11 @@ public class PlayerFormDefinition : ScriptableObject
     [SerializeField] private AnimatorOverrideController animations;
     [SerializeField] private AudioClip hitSE;
     [SerializeField] private AudioClip missSE;
+
+    [Header("通常攻撃（Normal・Finale）")]
+    [SerializeField, Min(0.01f), InspectorName("攻撃表示・アニメーション時間（拍）"),
+     Tooltip("瞬間的な攻撃判定が終わった後も、攻撃姿勢とアニメーションを表示する時間です。")]
+    private float attackVisualDurationBeats = 0.5f;
 
     [Header("5連撃（FiveHitのみ）")]
     [SerializeField, Min(0.01f), Tooltip("各攻撃の開始間隔。0.25なら1拍に4回の間隔です。")]
@@ -46,6 +51,7 @@ public class PlayerFormDefinition : ScriptableObject
     public float BeamMultiKillMultiplier => Mathf.Max(0f, beamMultiKillMultiplier);
 
     public const int ComboHitCount = 5;
+    public float AttackVisualDurationBeats => Mathf.Max(0.01f, attackVisualDurationBeats);
     public float ComboSpacingBeats => Mathf.Max(0.01f, comboSpacingBeats);
     public float ComboHitDurationBeats => Mathf.Clamp(comboHitDurationBeats, 0.001f, ComboSpacingBeats * 0.95f);
     public float ComboCooldownBeats => Mathf.Max(0f, comboCooldownBeats);

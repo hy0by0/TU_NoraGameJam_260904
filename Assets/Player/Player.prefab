@@ -635,8 +635,12 @@ MonoBehaviour:
   entranceController: {fileID: 763829969187017947}
   verticalLowerLimit: -4
   verticalUpperLimit: 4
-  attackDurationBeats: 0.01
-  attackIntervalBeats: 0
+  movementTiltTarget: {fileID: 7528353673440687329}
+  movementTiltAngle: 15
+  movementTiltDuration: 0.15
+  movementTiltEase: 9
+  attackDurationBeats: 0.1
+  attackIntervalBeats: 0.5
   attackHitBox: {fileID: 6264908402657906076}
   slashEffect: {fileID: 3770589614982855681}
   beamAttack: {fileID: 2062822554987070212}
