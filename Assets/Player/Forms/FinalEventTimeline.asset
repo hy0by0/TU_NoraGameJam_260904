@@ -264,7 +264,7 @@ MonoBehaviour:
       subdivision: 1
     fadeInBeats: 0.5
     fadeOutBeats: 0.5
-    message: "\u4F5C\u8A5E\u30FB\u4F5C\u66F2\u30FB\u7DE8\u66F2\u30FB\u6B4C\u8A5E\u30FBSE\r\n\u3042\u304D\r\n\r\n\u30B0\u30E9\u30D5\u30A3\u30C3\u30AF\u30FB\u6B4C\u8A5E\u30FB\u8ABF\u58F0\r\n\u306F\u304F\u3042\u304B"
+    message: "\u4F5C\u8A5E\u30FB\u4F5C\u66F2\u30FB\u7DE8\u66F2\u30FBSE\r\n\u3042\u304D\r\n\r\n\u30B0\u30E9\u30D5\u30A3\u30C3\u30AF\u30FB\u4F5C\u8A5E\u30FB\u8ABF\u58F0\r\n\u306F\u304F\u3042\u304B"
     fontSize: 40
     color: {r: 0, g: 0, b: 0, a: 1}
     anchoredPosition: {x: 0, y: 0}
@@ -296,6 +296,20 @@ MonoBehaviour:
     fontSize: 44
     color: {r: 0, g: 0, b: 0, a: 1}
     anchoredPosition: {x: 0, y: 0}
+  - start:
+      bar: 126
+      beat: 3
+      subdivision: 1
+    end:
+      bar: 125
+      beat: 2
+      subdivision: 1
+    fadeInBeats: 1
+    fadeOutBeats: 0
+    message: Thank you for playing!
+    fontSize: 15
+    color: {r: 0, g: 0, b: 0, a: 1}
+    anchoredPosition: {x: -5, y: 5}
   firstStillTiming:
     bar: 124
     beat: 1
