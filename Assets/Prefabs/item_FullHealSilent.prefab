@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3986374950715619927}
   - component: {fileID: 637696362676891684}
   - component: {fileID: 3966472694298792082}
+  - component: {fileID: 7336562579189168586}
   m_Layer: 0
   m_Name: item_FullHealSilent
   m_TagString: Item
@@ -155,3 +156,16 @@ MonoBehaviour:
   scoreValue: 0
   hitSE: {fileID: 0}
   targetForm: {fileID: 0}
+--- !u!114 &7336562579189168586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162574404202413782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e259ceedf6de83458d8d5b42635e8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftScreenExitDestroyer
+  targetRenderer: {fileID: 3986374950715619927}

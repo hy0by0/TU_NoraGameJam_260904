@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 886587337159967448}
   - component: {fileID: 1015333653927325287}
   - component: {fileID: 2179394512097518389}
+  - component: {fileID: 1655523207827555195}
   m_Layer: 0
   m_Name: Enemy_normal_move
   m_TagString: Enemy
@@ -208,3 +209,16 @@ MonoBehaviour:
   durationSeconds: 2
   easing: 4
   pingPong: 1
+--- !u!114 &1655523207827555195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012411752546552973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e259ceedf6de83458d8d5b42635e8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftScreenExitDestroyer
+  targetRenderer: {fileID: 8705456016018012719}

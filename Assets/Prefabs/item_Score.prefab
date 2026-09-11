@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3179586842924916865}
   - component: {fileID: 7513291716359390758}
   - component: {fileID: 7690693078135959269}
+  - component: {fileID: 4089924842226944182}
   m_Layer: 0
   m_Name: item_Score
   m_TagString: Item
@@ -154,3 +155,17 @@ MonoBehaviour:
   itemType: 0
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 54478536e5d5dcb41bc7107e23f2a08c, type: 3}
+  targetForm: {fileID: 0}
+--- !u!114 &4089924842226944182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772705532306541132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e259ceedf6de83458d8d5b42635e8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftScreenExitDestroyer
+  targetRenderer: {fileID: 3179586842924916865}

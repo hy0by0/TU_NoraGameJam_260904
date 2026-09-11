@@ -15,6 +15,14 @@ public class BeatTiming
     public int Beat => beat;
     public int Subdivision => subdivision;
 
+    // 初期値もInspectorと同じ1始まりで指定します。
+    public BeatTiming(int bar = 1, int beat = 1, int subdivision = 1)
+    {
+        this.bar = bar;
+        this.beat = beat;
+        this.subdivision = subdivision;
+    }
+
     /// <summary>
     /// 1始まりの指定位置を、曲の先頭拍からの0始まり拍位置へ変換します。
     /// </summary>

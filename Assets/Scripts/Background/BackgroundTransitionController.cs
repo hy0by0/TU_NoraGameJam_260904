@@ -38,6 +38,9 @@ public class BackgroundTransitionController : MonoBehaviour
     [SerializeField, Min(0f)] private float crossFadeDuration = 1f;
     [SerializeField, Min(0f)] private float flashInDuration = 0.12f;
     [SerializeField, Min(0f)] private float flashOutDuration = 0.28f;
+    [SerializeField, Min(0f)] private float dissolveDuration = 1f;
+    [SerializeField, Tooltip("固定背景・Parallax画像のディゾルブをInspectorで登録します。")]
+    private ImageDissolveController[] dissolveTargets = new ImageDissolveController[0];
 
     [Header("切り替え可能な背景")]
     [SerializeField] private List<BackgroundSet> backgroundSets = new List<BackgroundSet>();
@@ -114,6 +117,23 @@ public class BackgroundTransitionController : MonoBehaviour
     {
         KillTransitionTweens();
         ApplyBackgroundSet(backgroundSetIndex);
+    }
+
+    /// <summary>背景全レイヤーをノイズ状に消し、切替後にノイズ状に表示します。</summary>
+    public void SwitchBackgroundDissolve(int backgroundSetIndex)
+    {
+        KillTransitionTweens();
+        float value = 1f;
+        Sequence sequence = DOTween.Sequence().SetId(this);
+        sequence.Append(DOTween.To(() => value, next => { value = next; SetDissolve(next); }, 0f, dissolveDuration * 0.5f));
+        sequence.AppendCallback(() => ApplyBackgroundSet(backgroundSetIndex));
+        sequence.Append(DOTween.To(() => value, next => { value = next; SetDissolve(next); }, 1f, dissolveDuration * 0.5f));
+    }
+
+    // 各画像には独立したMaterialを割り当て、他のCanvasへ影響させません。
+    private void SetDissolve(float progress)
+    {
+        foreach (var target in dissolveTargets) target.SetProgress(progress);
     }
 
     /// <summary>
@@ -244,6 +264,7 @@ public class BackgroundTransitionController : MonoBehaviour
     private void KillTransitionTweens()
     {
         DOTween.Kill(this);
+        SetDissolve(1f);
         fixedBackgroundCurrent.DOKill();
         fixedBackgroundNext.DOKill();
         titleReplicaBackground.DOKill();

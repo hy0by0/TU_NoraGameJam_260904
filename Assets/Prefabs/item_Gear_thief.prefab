@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1458476070763166253}
   - component: {fileID: 2982354626269600418}
   - component: {fileID: 4984674301358271431}
+  - component: {fileID: 4797109218356816364}
   m_Layer: 0
   m_Name: item_Gear_thief
   m_TagString: Item
@@ -155,3 +156,16 @@ MonoBehaviour:
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 95641ff2f9c3fb64caedbe32bd6e81aa, type: 3}
   targetForm: {fileID: 11400000, guid: dc6ec7833986af64099eb96e4846bcd0, type: 2}
+--- !u!114 &4797109218356816364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663117030563126356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e259ceedf6de83458d8d5b42635e8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftScreenExitDestroyer
+  targetRenderer: {fileID: 1458476070763166253}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5015451908490878446}
   - component: {fileID: 2413512038557374114}
   - component: {fileID: 8209078396463872688}
+  - component: {fileID: 408150639210137313}
   m_Layer: 0
   m_Name: item_Gear_magic
   m_TagString: Item
@@ -155,3 +156,16 @@ MonoBehaviour:
   scoreValue: 100
   hitSE: {fileID: 8300000, guid: 95641ff2f9c3fb64caedbe32bd6e81aa, type: 3}
   targetForm: {fileID: 11400000, guid: 26f7eb2e4df8c244e9176c29cc008f28, type: 2}
+--- !u!114 &408150639210137313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717220564422259431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e259ceedf6de83458d8d5b42635e8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftScreenExitDestroyer
+  targetRenderer: {fileID: 5015451908490878446}
