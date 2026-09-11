@@ -1,0 +1,160 @@
+{
+  "ExportTimestamp": "2026-09-11 15:30:45",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "MainScene",
+    "nodeCount": 10,
+    "maxDepth": 2
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "MainScene",
+      "stats": {
+        "rootCount": 1,
+        "nodeCount": 10,
+        "maxDepth": 2
+      },
+      "roots": [
+        {
+          "name": "FinalEventRoot",
+          "isActive": true,
+          "components": [
+            "Transform",
+            "FinalEventController"
+          ],
+          "siblingIndex": 12,
+          "tag": "Untagged",
+          "layer": 0,
+          "path": "FinalEventRoot",
+          "children": [
+            {
+              "name": "BossRoot",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "SpriteRenderer"
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/BossRoot",
+              "children": []
+            },
+            {
+              "name": "FinalBeam",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "SpriteRenderer"
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/FinalBeam",
+              "children": []
+            },
+            {
+              "name": "ChargeFlash",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "SpriteRenderer"
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/ChargeFlash",
+              "children": []
+            },
+            {
+              "name": "ImpactFlash",
+              "isActive": true,
+              "components": [
+                "Transform",
+                "SpriteRenderer"
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/ImpactFlash",
+              "children": []
+            },
+            {
+              "name": "EndingCanvas",
+              "isActive": true,
+              "components": [
+                "RectTransform",
+                "Canvas",
+                "CanvasScaler",
+                "GraphicRaycaster",
+                "CanvasGroup"
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "path": "FinalEventRoot/EndingCanvas",
+              "children": [
+                {
+                  "name": "EventBackground",
+                  "isActive": true,
+                  "components": [
+                    "RectTransform",
+                    "CanvasRenderer",
+                    "Image"
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EventBackground",
+                  "children": []
+                },
+                {
+                  "name": "EventStill",
+                  "isActive": true,
+                  "components": [
+                    "RectTransform",
+                    "CanvasRenderer",
+                    "Image"
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EventStill",
+                  "children": []
+                },
+                {
+                  "name": "EndingStill",
+                  "isActive": true,
+                  "components": [
+                    "RectTransform",
+                    "CanvasRenderer",
+                    "Image"
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EndingStill",
+                  "children": []
+                },
+                {
+                  "name": "EventText",
+                  "isActive": true,
+                  "components": [
+                    "RectTransform",
+                    "CanvasRenderer",
+                    "Text"
+                  ],
+                  "siblingIndex": 3,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "path": "FinalEventRoot/EndingCanvas/EventText",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

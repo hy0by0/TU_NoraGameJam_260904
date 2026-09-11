@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8092482244256381325}
   - component: {fileID: 8445276719848209571}
   - component: {fileID: 471824743684329879}
+  - component: {fileID: 715492839103961708}
   m_Layer: 0
   m_Name: Enemy_normal_last
   m_TagString: Enemy
@@ -181,3 +182,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyType: 0
   scoreValue: 100
+--- !u!114 &715492839103961708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673123754649462064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e259ceedf6de83458d8d5b42635e8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftScreenExitDestroyer
+  targetRenderer: {fileID: 7076537735706913600}

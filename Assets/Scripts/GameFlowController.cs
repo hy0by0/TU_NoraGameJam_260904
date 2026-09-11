@@ -106,12 +106,8 @@ public class GameFlowController : MonoBehaviour
     {
         CurrentState = GameFlowState.GameOver;
         StopGameplaySystems();
-        gameplayUiRoot.SetActive(true);
-        cameraController.ShowGameOver();
-        backgroundTransitionController.TransitionToGameOverBackground();
-        hudTransition.Hide();
-        resultTransition.HideImmediate();
-        gameOverTransition.Show();
+        scoreRankingSender.SubmitCurrentScore();
+        finalEventController.ShowGameOver();
         musicController.BeginSlowStop(gameOverSlowStopDuration);
     }
 
@@ -123,11 +119,8 @@ public class GameFlowController : MonoBehaviour
         CurrentState = GameFlowState.Finished;
         StopGameplaySystems();
         scoreRankingSender.SubmitCurrentScore();
-        gameplayUiRoot.SetActive(true);
-        cameraController.ShowResult();
-        hudTransition.Hide();
-        gameOverTransition.HideImmediate();
-        resultTransition.Show();
+        // 最後のスチルを保持し、透明な全画面ボタンのみを有効にします。
+        finalEventController.CompleteEnding();
     }
 
     /// <summary>
