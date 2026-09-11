@@ -4,12 +4,12 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // 保存済みシーンとPrefabの番号を維持します。
-    public enum ItemType { Normal = 0, Heart = 1, Wide = 2, Speed = 3, FinalSword = 4, FullHealSilent = 5 }
+    public enum ItemType { Normal = 0, Heart = 1, Wide = 2, Speed = 3, FinalSword = 4, FullHealSilent = 5, NormalSword = 6 }
 
     public ItemType itemType;
     public int scoreValue = 100;
     [SerializeField] private AudioClip hitSE;
-    [Header("強化アイテム（Wide / Speed / FinalSword）の変更先")]
+    [Header("形態変更アイテム（NormalSword / Wide / Speed / FinalSword）の変更先")]
     [SerializeField] private PlayerFormDefinition targetForm;
     private bool isCollected;
 
@@ -30,7 +30,8 @@ public class Item : MonoBehaviour
             player.Heal(1);
         if (itemType == ItemType.FullHealSilent)
             player.HealFully();
-        if (itemType == ItemType.Wide || itemType == ItemType.Speed || itemType == ItemType.FinalSword)
+        // 通常剣の取得時もNormal形態へ戻します。
+        if (itemType == ItemType.NormalSword || itemType == ItemType.Wide || itemType == ItemType.Speed || itemType == ItemType.FinalSword)
             player.ChangeForm(targetForm);
         // 最終アイテムと無音全回復アイテムではSEを鳴らしません。
         if (itemType != ItemType.FinalSword && itemType != ItemType.FullHealSilent)
