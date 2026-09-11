@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72c3631a96b7b942abd50fcceaff2c4, type: 3}
   m_Name: MainSceneSong
   m_EditorClassIdentifier: Assembly-CSharp::SongDefinition
-  gameAudioClip: {fileID: 8300000, guid: 4ca91f86037ca8844ad03251ae10f9f6, type: 3}
+  gameAudioClip: {fileID: 8300000, guid: 3f04d92c04d341147bd324d9cf0c0b67, type: 3}
   bpm: 170
   beatsPerBar: 4
   subdivisionsPerBeat: 4
