@@ -1,0 +1,53 @@
+{
+  "ExportTimestamp": "2026-09-11 11:13:09",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "MainScene",
+    "nodeCount": 2,
+    "maxDepth": 1
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "MainScene",
+      "stats": {
+        "rootCount": 1,
+        "nodeCount": 2,
+        "maxDepth": 1
+      },
+      "roots": [
+        {
+          "name": "CanvasBack",
+          "isActive": true,
+          "components": [
+            "RectTransform",
+            "Canvas",
+            "CanvasScaler",
+            "GraphicRaycaster"
+          ],
+          "siblingIndex": 10,
+          "tag": "Untagged",
+          "layer": 5,
+          "path": "CanvasBack",
+          "children": [
+            {
+              "name": "IntervalBack",
+              "isActive": true,
+              "components": [
+                "RectTransform",
+                "CanvasRenderer",
+                "Image",
+                "CanvasGroup",
+                "UITransitionController"
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 5,
+              "path": "CanvasBack/IntervalBack",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

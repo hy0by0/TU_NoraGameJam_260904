@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// シーンに配置したビームと発射光を伸縮し、同じ形状の当たり判定で撃破を集計します。
+// シーンに配置した最大長のビームで瞬間判定し、その後の細まりと発射光を表示します。
 public class PlayerBeamAttack : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer beamRenderer;
@@ -12,22 +12,28 @@ public class PlayerBeamAttack : MonoBehaviour
     private float flashSize = 0.9f;
     private PlayerFormDefinition activeForm;
 
-    // 攻撃開始時の設定を保持し、一発分の集計を開始します。
+    // 攻撃開始時に最大範囲を一度だけ判定し、その後は見た目だけを残します。
     public void Begin(PlayerFormDefinition form)
     {
         activeForm = form;
         hitBox.BeginAttack();
         gameObject.SetActive(true);
+        beamCollider.enabled = true;
         Sample(0f);
+
+        // 入力直後の最大範囲にいる敵をまとめて検出し、この時点で命中・空振りを確定します。
+        Physics2D.SyncTransforms();
+        hitBox.CollectOverlaps(beamCollider);
+        hitBox.EndAttack();
+        beamCollider.enabled = false;
     }
 
-    // 曲の進行率に合わせて伸長・細まり・発射光を更新します。
+    // 最大長を維持したまま、曲の進行率に合わせてビームの太さと発射光を更新します。
     public void Sample(float progress)
     {
         float phase = Mathf.Clamp01(progress);
-        float extensionRatio = activeForm.BeamExtendBeats / activeForm.BeamDurationBeats;
-        float extension = Mathf.Clamp01(phase / extensionRatio);
-        float length = activeForm.BeamLength * Mathf.Max(0.001f, Mathf.SmoothStep(0f, 1f, extension));
+        float extensionRatio = activeForm.BeamExtendBeats / activeForm.BeamVisualDurationBeats;
+        float length = activeForm.BeamLength;
         float thickness = activeForm.BeamThickness * Mathf.Max(0.001f, 1f - phase);
         Vector3 parentScale = transform.lossyScale;
         Vector3 spriteSize = beamRenderer.sprite.bounds.size;
@@ -48,14 +54,12 @@ public class PlayerBeamAttack : MonoBehaviour
         Color color = flashRenderer.color;
         color.a = 1f - flashProgress;
         flashRenderer.color = color;
-        // 物理更新を待たず、今表示している範囲で敵を検査します。
-        Physics2D.SyncTransforms();
-        hitBox.CollectOverlaps(beamCollider);
     }
 
-    // 通常終了・被弾・形態変更のどれでも表示と判定を閉じ、集計を一度だけ確定します。
+    // 通常終了・被弾・形態変更のどれでも表示を閉じ、Colliderを無効状態に戻します。
     public void End()
     {
+        beamCollider.enabled = false;
         gameObject.SetActive(false);
     }
 }

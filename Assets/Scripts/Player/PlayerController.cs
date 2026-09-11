@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -24,9 +25,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("プレイヤーが移動できる最も上のワールドY座標です。")]
     private float verticalUpperLimit = 4f;
 
+    [Header("上下移動時の見た目の傾き")]
+    [SerializeField, Tooltip("上下入力に合わせて回転させる、見た目だけのTransformです。")]
+    private Transform movementTiltTarget;
+    [SerializeField, Min(0f), Tooltip("上下移動時に見た目を傾ける角度です。上入力では反時計回り、下入力では時計回りに傾きます。")]
+    private float movementTiltAngle = 15f;
+    [SerializeField, Min(0f), Tooltip("目標の傾きへ到達するまでの秒数です。")]
+    private float movementTiltDuration = 0.15f;
+    [SerializeField, Tooltip("傾き始めと戻り方の緩急です。")]
+    private Ease movementTiltEase = Ease.OutCubic;
+
     [Header("攻撃タイミング")]
-    [SerializeField, Min(0.01f)] private float attackDurationBeats = 0.5f;
-    [SerializeField, Min(0f)] private float attackIntervalBeats = 1f;
+    [SerializeField, Min(0.01f), InspectorName("通常攻撃の判定時間（拍）"),
+     Tooltip("Normal・Finaleの攻撃判定だけを有効にする時間です。攻撃表示の長さには影響しません。")]
+    private float attackDurationBeats = 0.5f;
+    [SerializeField, Min(0f), InspectorName("通常攻撃の再攻撃待ち時間（拍）")]
+    private float attackIntervalBeats = 1f;
 
     [Header("攻撃に使用するオブジェクト")]
     [SerializeField] private AttackHitBox attackHitBox;
@@ -73,6 +87,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private InputSystem_Actions inputActions;
     private Vector2 moveInput;
+    private Vector3 movementTiltRestEulerAngles;
+    private int currentMovementTiltDirection;
     private bool isFinalEventActive;
     private bool isGameplayEnabled = true;
 
@@ -110,6 +126,8 @@ public class PlayerController : MonoBehaviour
         formController.Initialize();
         beamAttack.End();
         RefreshAnimation();
+        movementTiltRestEulerAngles = movementTiltTarget.localEulerAngles;
+        currentMovementTiltDirection = 0;
     }
 
     /// <summary>
@@ -140,6 +158,9 @@ public class PlayerController : MonoBehaviour
         isDamaged = false;
         playerRigidbody.linearVelocity = Vector2.zero;
         animationController.ResetPresentation();
+        movementTiltTarget.DOKill();
+        movementTiltTarget.localEulerAngles = movementTiltRestEulerAngles;
+        currentMovementTiltDirection = 0;
     }
 
     /// <summary>
@@ -150,15 +171,18 @@ public class PlayerController : MonoBehaviour
         if (!isGameplayEnabled)
         {
             moveInput = Vector2.zero;
+            UpdateMovementTilt();
             return;
         }
 
         if (isFinalEventActive)
         {
             moveInput = Vector2.zero;
+            UpdateMovementTilt();
             return;
         }
         moveInput = inputActions.Player.Move.ReadValue<Vector2>();
+        UpdateMovementTilt();
 
         // Input Actions の Attack に割り当てられた左クリックで攻撃します。
         if (entranceController.IsInputEnabled
@@ -169,6 +193,25 @@ public class PlayerController : MonoBehaviour
             attackCoroutine = StartCoroutine(AttackCoroutine());
         }
 
+    }
+
+    /// <summary>
+    /// 攻撃アニメーション中は正面へ戻し、それ以外では上下入力に合わせて表示を傾けます。
+    /// </summary>
+    private void UpdateMovementTilt()
+    {
+        int tiltDirection = isAttacking ? 0 : moveInput.y > 0f ? 1 : moveInput.y < 0f ? -1 : 0;
+        if (tiltDirection == currentMovementTiltDirection) return;
+
+        currentMovementTiltDirection = tiltDirection;
+        Vector3 targetEulerAngles = movementTiltRestEulerAngles;
+        targetEulerAngles.z += movementTiltAngle * tiltDirection;
+
+        movementTiltTarget.DOKill();
+        movementTiltTarget
+            .DOLocalRotate(targetEulerAngles, movementTiltDuration, RotateMode.Fast)
+            .SetEase(movementTiltEase)
+            .SetLink(movementTiltTarget.gameObject, LinkBehaviour.KillOnDestroy);
     }
 
     /// <summary>
@@ -201,7 +244,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// BPMから攻撃時間を求め、攻撃範囲とアニメーションを同じ時間だけ有効にします。
+    /// 通常攻撃の判定を短時間だけ有効にし、攻撃表示は形態ごとの時間だけ継続します。
     /// </summary>
     private IEnumerator AttackCoroutine()
     {
@@ -221,22 +264,29 @@ public class PlayerController : MonoBehaviour
         isAttacking = true;
         attackStartedAt = musicConductor.PlaybackTimeSeconds;
 
-        float attackDuration = musicConductor.BeatsToSeconds(attackDurationBeats);
+        float hitDuration = musicConductor.BeatsToSeconds(attackDurationBeats);
+        float visualDuration = musicConductor.BeatsToSeconds(attackForm.AttackVisualDurationBeats);
         float attackInterval = musicConductor.BeatsToSeconds(attackIntervalBeats);
-        activeAttackDuration = attackDuration;
+        float visualEndAt = attackStartedAt + visualDuration;
+        float attackUnlockAt = attackStartedAt + hitDuration + attackInterval;
+        activeAttackDuration = visualDuration;
         activeAttackInterval = attackInterval;
 
         attackHitBox.BeginAttack();
         attackHitBox.gameObject.SetActive(true);
         RefreshAnimation();
 
-        yield return WaitForMusicSeconds(attackDuration);
+        yield return WaitForMusicSeconds(hitDuration);
 
         attackHitBox.gameObject.SetActive(false);
+
+        // 判定終了後も、形態に設定された時間までは攻撃姿勢とアニメーションを維持します。
+        yield return WaitUntilMusicTime(visualEndAt);
         isAttacking = false;
         RefreshAnimation();
 
-        yield return WaitForMusicSeconds(attackInterval);
+        // 従来の「判定時間＋再攻撃待ち時間」より早く次の攻撃を受け付けないようにします。
+        yield return WaitUntilMusicTime(attackUnlockAt);
 
         isAttackLocked = false;
     }
@@ -286,7 +336,7 @@ public class PlayerController : MonoBehaviour
         didHitThisAttack = false;
         attackForm = formController.Current;
         attackStartedAt = musicConductor.PlaybackTimeSeconds;
-        activeAttackDuration = musicConductor.BeatsToSeconds(attackForm.BeamDurationBeats);
+        activeAttackDuration = musicConductor.BeatsToSeconds(attackForm.BeamVisualDurationBeats);
         activeAttackInterval = musicConductor.BeatsToSeconds(attackForm.BeamCooldownBeats);
         RefreshAnimation();
         beamAttack.Begin(attackForm);
@@ -406,6 +456,7 @@ public class PlayerController : MonoBehaviour
         isDamaged = false;
         isFinalEventActive = true;
         moveInput = Vector2.zero;
+        UpdateMovementTilt();
         playerRigidbody.linearVelocity = Vector2.zero;
         RefreshAnimation();
     }
@@ -426,6 +477,7 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Disable();
         StopAllCoroutines();
         moveInput = Vector2.zero;
+        UpdateMovementTilt();
         isAttacking = false;
         isAttackLocked = false;
         isAttackDisabled = true;
@@ -523,6 +575,12 @@ public class PlayerController : MonoBehaviour
     {
         float endTime = musicConductor.PlaybackTimeSeconds + duration;
 
+        yield return WaitUntilMusicTime(endTime);
+    }
+
+    // BGM基準の指定時刻まで待機し、複数の終了時刻を同じ攻撃開始時刻から管理します。
+    private IEnumerator WaitUntilMusicTime(float endTime)
+    {
         while (musicConductor.IsGameRunning && musicConductor.PlaybackTimeSeconds < endTime)
         {
             yield return null;
