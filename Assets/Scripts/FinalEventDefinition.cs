@@ -60,23 +60,21 @@ public class FinalEventDefinition : ScriptableObject
     public bool coverScreenHeight = true;
     [Tooltip("画面を覆う場合、発射端も左端まで拡大します。")]
     public bool coverScreenWidth = true;
-    public BeatTiming beamFullTiming = new BeatTiming(114, 4);
+    public BeatTiming beamFullTiming = new BeatTiming(115);
     public AnimationCurve beamGrowthCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     [Tooltip("ビーム拡大中の透明度です。横軸0が取得時、1が拡大完了時です。")]
     public AnimationCurve beamFadeCurve = AnimationCurve.Linear(0f, 1f, 1f, 0f);
-    [Tooltip("ビーム拡大中に背面へ表示する白背景の透明度です。")]
-    public AnimationCurve whiteBackdropFadeCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
     [Min(0f)] public float beamStartOffset = 0.55f;
 
-    [Header("1回目の白転：完全な白の時点で画像を切替")]
-    public BeatTiming firstWhiteStart = new BeatTiming(114, 4);
+    [Header("1回目の白転：取得時に開始し、完全な白の時点で画像を切替")]
     public BeatTiming firstWhitePeak = new BeatTiming(115);
     public BeatTiming firstWhiteEnd = new BeatTiming(115, 3);
-    [Header("接近と2回目の白転")]
+    [Header("白転後の接近と接触前の白転")]
     public BeatTiming approachStart = new BeatTiming(115, 3);
     public BeatTiming contactTiming = new BeatTiming(117);
     public AnimationCurve approachCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-    public BeatTiming secondWhiteStart = new BeatTiming(116, 4);
+    [Tooltip("接近中に再び白くし始める時刻です。1回目の白転終了より前には開始しません。")]
+    public BeatTiming secondWhiteStart = new BeatTiming(115, 3);
     public BeatTiming creditsStart = new BeatTiming(117);
 
     [Header("白背景のテキスト（後ろの項目を優先）")]
