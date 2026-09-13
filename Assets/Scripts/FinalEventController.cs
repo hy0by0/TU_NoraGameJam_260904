@@ -44,6 +44,7 @@ public class FinalEventController : MonoBehaviour
     [SerializeField] private Image eventStillImage;
     [SerializeField] private Image endingStillImage;
     [SerializeField] private Text eventText;
+    [SerializeField] private Text thankYouText;
     [SerializeField] private Button retryButton;
     [SerializeField] private ImageDissolveController firstStillDissolve;
     [SerializeField] private ImageDissolveController secondStillDissolve;
@@ -55,6 +56,7 @@ public class FinalEventController : MonoBehaviour
     private bool isRunning;
     private bool stopped;
     private bool auraStarted;
+    private Color thankYouTextColor;
     public bool IsRunning => isRunning;
     public bool HasFired => hasBegun;
     public bool IsShowingEnding => endingStillImage.gameObject.activeSelf;
@@ -62,6 +64,9 @@ public class FinalEventController : MonoBehaviour
     /// <summary>演出オブジェクトを非表示にして、音楽開始を待ちます。</summary>
     private void Awake()
     {
+        // Inspectorで設定した文字色を保存し、表示開始までは隠します。
+        thankYouTextColor = thankYouText.color;
+        thankYouText.gameObject.SetActive(false);
         bossRoot.gameObject.SetActive(false);
         bossAura.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         finalBeamRoot.gameObject.SetActive(false);
@@ -180,6 +185,7 @@ public class FinalEventController : MonoBehaviour
         whiteOverlay.gameObject.SetActive(white > 0f);
         EvaluateCredits(beat);
         EvaluateStills(beat);
+        EvaluateThankYouText(beat);
     }
 
     /// <summary>長さと太さを独立して拡大し、必要ならカメラ全面まで広げます。</summary>
@@ -245,6 +251,17 @@ public class FinalEventController : MonoBehaviour
         ApplyStill(endingStillImage, secondStillDissolve, timeline.secondStillTransition, Fade(beat - first - timeline.secondStillDelayBeats, timeline.secondStillFadeBeats));
     }
 
+    /// <summary>2枚目のスチルから指定拍だけ遅らせ、配置済みの文字をフェードインします。</summary>
+    private void EvaluateThankYouText(float beat)
+    {
+        float secondStillBeat = timeline.Beat(timeline.firstStillTiming) + timeline.secondStillDelayBeats;
+        float startBeat = secondStillBeat + timeline.thankYouDelayBeats;
+        thankYouText.gameObject.SetActive(beat >= startBeat);
+        Color color = thankYouTextColor;
+        color.a *= Fade(beat - startBeat, timeline.thankYouFadeBeats);
+        thankYouText.color = color;
+    }
+
     /// <summary>画像の透明度またはディゾルブ進行率を設定します。</summary>
     private void ApplyStill(Image image, ImageDissolveController dissolve, FinaleImageTransition style, float progress)
     {
@@ -272,6 +289,8 @@ public class FinalEventController : MonoBehaviour
         endingStillImage.sprite = timeline.secondStill;
         secondStillDissolve.SetProgress(1f);
         endingStillImage.color = Color.white;
+        // 曲終了後も、最後に評価した文字の表示状態を維持します。
+        EvaluateThankYouText(musicController.CurrentBeatFloat);
         retryButton.gameObject.SetActive(true);
         retryButton.interactable = true;
     }
@@ -299,6 +318,7 @@ public class FinalEventController : MonoBehaviour
         eventStillImage.gameObject.SetActive(false);
         endingStillImage.gameObject.SetActive(false);
         eventText.gameObject.SetActive(false);
+        thankYouText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(true);
         retryButton.interactable = true;
     }

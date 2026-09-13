@@ -88,6 +88,9 @@ public class FinalEventDefinition : ScriptableObject
     public FinaleImageTransition secondStillTransition = FinaleImageTransition.Cut;
     public Sprite firstStill;
     public Sprite secondStill;
+    [Header("2枚目のスチルに重ねるテキスト")]
+    [Min(0f)] public float thankYouDelayBeats = 2f;
+    [Min(0f)] public float thankYouFadeBeats = 1f;
 
     public float ItemCollectBeat => Beat(itemCollectTiming);
     public float ItemHomingDurationBeats => Mathf.Max(0.01f, itemHomingDurationBeats);

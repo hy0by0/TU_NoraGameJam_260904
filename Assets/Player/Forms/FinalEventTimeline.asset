@@ -17,7 +17,7 @@ MonoBehaviour:
     bar: 113
     beat: 1
     subdivision: 1
-  itemHomingDurationBeats: 2
+  itemHomingDurationBeats: 3
   itemHomingStartViewport: {x: 1.08, y: 0.65}
   itemHomingCurve:
     serializedVersion: 2
@@ -293,3 +293,5 @@ MonoBehaviour:
   secondStillTransition: 1
   firstStill: {fileID: 21300000, guid: 2a55bad5fb1b14643bc9af60cc86e633, type: 3}
   secondStill: {fileID: 21300000, guid: b3f9405391ac525418cb672df6445ff6, type: 3}
+  thankYouDelayBeats: 2
+  thankYouFadeBeats: 1
