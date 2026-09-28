@@ -9242,7 +9242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialDisplayController
   tutorialTransition: {fileID: 529737778}
-  forTouchMode: 1
+  forTouchMode: 0
 --- !u!114 &529737778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30522,6 +30522,7 @@ GameObject:
   - component: {fileID: 1713489115}
   - component: {fileID: 1713489114}
   - component: {fileID: 1713489117}
+  - component: {fileID: 1713489118}
   m_Layer: 5
   m_Name: Tutorial_normal
   m_TagString: Untagged
@@ -30623,8 +30624,6 @@ MonoBehaviour:
   showEase: 9
   hideEase: 8
   visibleOnAwake: 0
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1713489118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30639,7 +30638,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialDisplayController
   tutorialTransition: {fileID: 1713489117}
   forTouchMode: 0
->>>>>>> Stashed changes
 --- !u!4 &1713617404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 597337735236032291, guid: f9f5be8389bbb014fac5d3df49460766, type: 3}
