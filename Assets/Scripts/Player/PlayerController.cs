@@ -87,6 +87,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private InputSystem_Actions inputActions;
     private Vector2 moveInput;
+    private float pendingTouchWorldY;
+    private float lastTouchDragTime;
     private Vector3 movementTiltRestEulerAngles;
     private int currentMovementTiltDirection;
     private bool isFinalEventActive;
@@ -149,6 +151,7 @@ public class PlayerController : MonoBehaviour
     {
         inputActions.Player.Disable();
         StopAllCoroutines();
+        pendingTouchWorldY = 0f;
         isAttacking = false;
         slashEffect.Hide();
         attackHitBox.gameObject.SetActive(false);
@@ -181,17 +184,18 @@ public class PlayerController : MonoBehaviour
             UpdateMovementTilt();
             return;
         }
+        if (PlayInputMode.IsTouch)
+        {
+            // ドラッグが少し途切れても、傾きが毎フレーム戻らないようにします。
+            if (Time.unscaledTime - lastTouchDragTime > 0.1f) moveInput = Vector2.zero;
+            UpdateMovementTilt();
+            return;
+        }
+
         moveInput = inputActions.Player.Move.ReadValue<Vector2>();
         UpdateMovementTilt();
 
-        // Input Actions の Attack に割り当てられた左クリックで攻撃します。
-        if (entranceController.IsInputEnabled
-            && inputActions.Player.Attack.WasPressedThisFrame()
-            && !isAttackLocked
-            && !isAttackDisabled)
-        {
-            attackCoroutine = StartCoroutine(AttackCoroutine());
-        }
+        if (inputActions.Player.Attack.WasPressedThisFrame()) TryAttack();
 
     }
 
@@ -237,7 +241,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        float targetY = playerRigidbody.position.y + moveInput.y * moveSpeed * Time.fixedDeltaTime;
+        float moveY = PlayInputMode.IsTouch
+            ? pendingTouchWorldY
+            : moveInput.y * moveSpeed * Time.fixedDeltaTime;
+        pendingTouchWorldY = 0f;
+        float targetY = playerRigidbody.position.y + moveY;
         targetY = Mathf.Clamp(targetY, verticalLowerLimit, verticalUpperLimit);
         Vector2 targetPosition = new Vector2(entranceController.GameplayWorldX, targetY);
         playerRigidbody.MovePosition(targetPosition);
@@ -456,6 +464,7 @@ public class PlayerController : MonoBehaviour
         isDamaged = false;
         isFinalEventActive = true;
         moveInput = Vector2.zero;
+        pendingTouchWorldY = 0f;
         UpdateMovementTilt();
         playerRigidbody.linearVelocity = Vector2.zero;
         RefreshAnimation();
@@ -477,6 +486,7 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Disable();
         StopAllCoroutines();
         moveInput = Vector2.zero;
+        pendingTouchWorldY = 0f;
         UpdateMovementTilt();
         isAttacking = false;
         isAttackLocked = false;
@@ -486,6 +496,34 @@ public class PlayerController : MonoBehaviour
         beamAttack.End();
         playerRigidbody.linearVelocity = Vector2.zero;
         RefreshAnimation();
+    }
+
+    /// <summary>タッチ操作のドラッグ量を、次の物理更新で適用します。</summary>
+    public void ApplyTouchDrag(float worldDeltaY)
+    {
+        if (!PlayInputMode.IsTouch || !isGameplayEnabled || isFinalEventActive
+            || !entranceController.IsInputEnabled) return;
+
+        pendingTouchWorldY += worldDeltaY;
+        lastTouchDragTime = Time.unscaledTime;
+        moveInput = new Vector2(0f, Mathf.Sign(worldDeltaY));
+        UpdateMovementTilt();
+    }
+
+    /// <summary>右側のタップで、通常操作と同じ攻撃条件を確認します。</summary>
+    public void TryAttackFromTouch()
+    {
+        if (!PlayInputMode.IsTouch) return;
+        TryAttack();
+    }
+
+    /// <summary>操作開始、攻撃間隔、被弾中の条件を共通で確認して攻撃します。</summary>
+    private void TryAttack()
+    {
+        if (!isGameplayEnabled || isFinalEventActive || !entranceController.IsInputEnabled
+            || isAttackLocked || isAttackDisabled) return;
+
+        attackCoroutine = StartCoroutine(AttackCoroutine());
     }
 
     // 形態変更で攻撃を中断しても、攻撃後の待機時間は省略しません。
