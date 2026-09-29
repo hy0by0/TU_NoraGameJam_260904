@@ -1,0 +1,39 @@
+{
+  "ExportTimestamp": "2026-09-16 13:14:12",
+  "Context": {
+    "sceneType": "prefab",
+    "sceneName": "Assets/Prefabs/Enemy_normal.prefab",
+    "nodeCount": 1,
+    "maxDepth": 0
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "Enemy_normal",
+      "stats": {
+        "rootCount": 1,
+        "nodeCount": 1,
+        "maxDepth": 0
+      },
+      "roots": [
+        {
+          "name": "Enemy_normal",
+          "isActive": true,
+          "components": [
+            "Transform",
+            "SpriteRenderer",
+            "BoxCollider2D",
+            "Rigidbody2D",
+            "Enemy",
+            "LeftScreenExitDestroyer",
+            "Animator"
+          ],
+          "siblingIndex": 0,
+          "tag": "Enemy",
+          "layer": 0,
+          "path": "Enemy_normal",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

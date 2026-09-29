@@ -7,6 +7,7 @@ public class TutorialDisplayController : MonoBehaviour
 {
     [Header("既存の表示演出")]
     [SerializeField] private UITransitionController tutorialTransition;
+
     [SerializeField, Tooltip("このガイドをタッチ操作のときに表示する場合に有効にします。")]
     private bool forTouchMode;
 
@@ -15,6 +16,7 @@ public class TutorialDisplayController : MonoBehaviour
     /// </summary>
     public void ShowIfEnabled()
     {
+
         if (TutorialDisplaySettings.IsEnabled && PlayInputMode.IsTouch == forTouchMode)
         {
             tutorialTransition.ShowFade();

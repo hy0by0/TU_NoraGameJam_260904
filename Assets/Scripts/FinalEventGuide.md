@@ -1,6 +1,6 @@
 # 最終演出・ゲームオーバーの設定ガイド
 
-2026-09-11 更新。対象シーン：Assets/Scenes/MainScene.unity。
+2026-09-13 更新。対象シーン：Assets/Scenes/MainScene.unity。
 
 ## 最初に開く設定
 
@@ -16,10 +16,10 @@ Projectで Assets/Player/Forms/FinalEventTimeline.asset を選択してくださ
 | ボスの浮遊 | 幅0.15、4拍で1往復 | Boss Float Amplitude / Period Beats |
 | 自動取得 | 113小節1拍（448拍） | Item Collect Timing |
 | アイテム接近 | 取得の2拍前から | Item Homing Duration Beats / Start Viewport / Curve |
-| ビーム拡大 | 取得時→114小節4拍 | Beam Full Timing、最大長・太さ、カーブ |
-| 1回目の白転 | 114小節4拍→115小節1拍→115小節3拍 | First White Start / Peak / End |
+| ビーム拡大 | 取得時→115小節1拍 | Beam Full Timing、最大長・太さ、カーブ |
+| 1回目の白転 | 取得時→115小節1拍→115小節3拍 | Item Collect Timing / First White Peak / End |
 | プレイヤー接近 | 115小節3拍→117小節1拍 | Approach Start / Contact Timing / Curve |
-| 2回目の白転 | 116小節4拍→117小節1拍 | Second White Start / Credits Start |
+| 接近中の白転 | 115小節3拍→117小節1拍 | Second White Start / Contact Timing |
 | テキスト | 117小節から4項目 | Credits |
 | スコア表示 | 121小節から | Creditsの4項目目 |
 | 1枚目のスチル | 125小節1拍 | First Still Timing |
@@ -44,17 +44,23 @@ Player Target Viewport、Boss Target Viewportで構図を変更できます。
 ビームに溜め光・命中光・発光画像は使用しません。Square.pngを拡大します。
 Beam Maximum Length、Beam Extend Beatsで長さと伸びる時間を指定します。
 Beam Start Thickness、Beam Maximum Thickness、Beam Full Timingで太さを設定します。
-拡大中は同じ進行率で、ビームを薄くしながらキャラクター背面の白背景をフェードインします。
-Beam Fade Curveはビームの透明度（初期値1→0）、White Backdrop Fade Curveは白背景の透明度（初期値0→1）です。
+Beam Fade Curveはビームの透明度（初期値1→0）です。
+ビーム発射時のItem Collect TimingからFirst White Peakまで、背面の白背景と前面の白転を同じ進行率でフェードインします。
+既定ではBeam Full TimingもFirst White Peakと同じ115小節1拍にし、ビームの拡大完了もそろえています。
+背面の白背景はキャラクターより後ろなので、白くなる途中でも立ち絵を直接隠しません。
 Cover Screen Height / Widthが有効な場合、設定した最大寸法よりも画面を覆う寸法を優先します。
 幅の自動拡大は発射端も左へ広げます。固定射程にしたい場合はCover Screen Widthを外してください。
 最終演出とゲームオーバー中はカメラのPostProcessingを停止し、発光や露出補正の影響を除いています。リトライで元の設定に戻ります。
 
 1回目の白転が完全に白になる時点で、ビームを消し、背景を白にし、
 ボスをboss_damage_normal、プレイヤーをplayer_idle_magicへ変更します。
+2人はその瞬間に透明になり、白転が引くのと同じ時間で徐々に表示されます。
+Item Collect Timing＜First White Peak＜First White Endの順で指定してください。
 接近は接触点同士がContact Timingに一致するように計算します。
 見た目に合わせた接触位置は下記ContactPointのTransformで調整してください。
-2回目の白転完了後、キャラを非表示にして白背景上のテキストに切り替えます。
+Second White Startから接触時刻まで、同じWhiteoutOverlayを再び白くします。
+1回目の白転が完全に引くより前には始まらないため、画像差し替え用の白転とは重なりません。
+Credits Startでキャラを非表示にして前面の白を外し、背面の白背景上のテキストへ切り替えます。
 
 Creditsの各要素で開始／終了、フェード時間、本文、文字サイズ、色、位置を設定できます。
 本文の {score} が今回の確定スコアに置き換わります。

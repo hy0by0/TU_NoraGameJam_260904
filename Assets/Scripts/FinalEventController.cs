@@ -44,6 +44,7 @@ public class FinalEventController : MonoBehaviour
     [SerializeField] private Image eventStillImage;
     [SerializeField] private Image endingStillImage;
     [SerializeField] private Text eventText;
+    [SerializeField] private Text thankYouText;
     [SerializeField] private Button retryButton;
     [SerializeField] private ImageDissolveController firstStillDissolve;
     [SerializeField] private ImageDissolveController secondStillDissolve;
@@ -55,6 +56,7 @@ public class FinalEventController : MonoBehaviour
     private bool isRunning;
     private bool stopped;
     private bool auraStarted;
+    private Color thankYouTextColor;
     public bool IsRunning => isRunning;
     public bool HasFired => hasBegun;
     public bool IsShowingEnding => endingStillImage.gameObject.activeSelf;
@@ -62,6 +64,9 @@ public class FinalEventController : MonoBehaviour
     /// <summary>演出オブジェクトを非表示にして、音楽開始を待ちます。</summary>
     private void Awake()
     {
+        // Inspectorで設定した文字色を保存し、表示開始までは隠します。
+        thankYouTextColor = thankYouText.color;
+        thankYouText.gameObject.SetActive(false);
         bossRoot.gameObject.SetActive(false);
         bossAura.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         finalBeamRoot.gameObject.SetActive(false);
@@ -140,12 +145,16 @@ public class FinalEventController : MonoBehaviour
         bossRoot.gameObject.SetActive(beat < timeline.Beat(timeline.creditsStart));
         bossRoot.position = Vector3.Lerp(bossStartPosition, World(timeline.bossTargetViewport), settle);
         bossVisual.localPosition = Vector3.Lerp(bossFloatAtCollect, Vector3.zero, settle);
-        bossRenderer.color = Color.white;
         bool afterWhite = beat >= timeline.Beat(timeline.firstWhitePeak);
         playerRenderer.sprite = afterWhite ? timeline.playerAfterBeamSprite : timeline.playerAttackSprite;
         bossRenderer.sprite = afterWhite ? timeline.bossDamageSprite : timeline.bossIdleSprite;
         playerRenderer.enabled = beat < timeline.Beat(timeline.creditsStart);
-        playerRenderer.color = Color.white;
+        // 完全な白で隠した瞬間に画像を交換し、白が引く時間と同じ時間で2人を表示します。
+        float characterAlpha = afterWhite
+            ? timeline.Progress(beat, timeline.firstWhitePeak, timeline.firstWhiteEnd)
+            : 1f;
+        playerRenderer.color = new Color(1f, 1f, 1f, characterAlpha);
+        bossRenderer.color = new Color(1f, 1f, 1f, characterAlpha);
         Vector3 position = Vector3.Lerp(playerStartPosition, playerTarget,
             timeline.playerMoveCurve.Evaluate(Mathf.Clamp01(elapsed / Mathf.Max(0.01f, timeline.playerMoveDurationBeats))));
         // 画像中心ではなく、Inspectorで置いた接触点同士を時刻ぴったりに合わせます。
@@ -160,20 +169,23 @@ public class FinalEventController : MonoBehaviour
         float beamGrowth = GetBeamGrowth(beat);
         finalBeamRoot.gameObject.SetActive(!afterWhite);
         if (!afterWhite) EvaluateBeam(elapsed, position, beamGrowth);
-        // 白背景はキャラクターより後ろのCanvasに描画し、ビーム拡大と同時にフェードインします。
-        float backdropAlpha = afterWhite ? 1f : Mathf.Clamp01(timeline.whiteBackdropFadeCurve.Evaluate(beamGrowth));
-        SetBackdrop(true, new Color(1f, 1f, 1f, backdropAlpha));
+        // ビーム発射から完全な白までの共通進行率で、背面背景と前面の白転を同時に進めます。
+        float firstWhiteProgress = timeline.Progress(beat, timeline.itemCollectTiming, timeline.firstWhitePeak);
+        SetBackdrop(true, new Color(1f, 1f, 1f, firstWhiteProgress));
         if (afterWhite) HideBackgrounds();
         float white = beat < timeline.Beat(timeline.firstWhitePeak)
-            ? timeline.Progress(beat, timeline.firstWhiteStart, timeline.firstWhitePeak)
+            ? firstWhiteProgress
             : 1f - timeline.Progress(beat, timeline.firstWhitePeak, timeline.firstWhiteEnd);
-        white = Mathf.Max(white, timeline.Progress(beat, timeline.secondWhiteStart, timeline.creditsStart));
-        // 2回目の白転完了時に、同じ白の背景へ引き継いでテキストを表示します。
+        // 1回目が引き切った後、接近に合わせて再び白くし、接触時に完全な白へ戻します。
+        float secondStart = Mathf.Max(timeline.Beat(timeline.firstWhiteEnd), timeline.Beat(timeline.secondWhiteStart));
+        white = Mathf.Max(white, Fade(beat - secondStart, timeline.Beat(timeline.contactTiming) - secondStart));
+        // クレジットでは前面の白を外し、同じ白色の背面背景へ継ぎ目なく引き継ぎます。
         if (beat >= timeline.Beat(timeline.creditsStart)) white = 0f;
         whiteOverlay.color = new Color(1f, 1f, 1f, white);
         whiteOverlay.gameObject.SetActive(white > 0f);
         EvaluateCredits(beat);
         EvaluateStills(beat);
+        EvaluateThankYouText(beat);
     }
 
     /// <summary>長さと太さを独立して拡大し、必要ならカメラ全面まで広げます。</summary>
@@ -239,6 +251,17 @@ public class FinalEventController : MonoBehaviour
         ApplyStill(endingStillImage, secondStillDissolve, timeline.secondStillTransition, Fade(beat - first - timeline.secondStillDelayBeats, timeline.secondStillFadeBeats));
     }
 
+    /// <summary>2枚目のスチルから指定拍だけ遅らせ、配置済みの文字をフェードインします。</summary>
+    private void EvaluateThankYouText(float beat)
+    {
+        float secondStillBeat = timeline.Beat(timeline.firstStillTiming) + timeline.secondStillDelayBeats;
+        float startBeat = secondStillBeat + timeline.thankYouDelayBeats;
+        thankYouText.gameObject.SetActive(beat >= startBeat);
+        Color color = thankYouTextColor;
+        color.a *= Fade(beat - startBeat, timeline.thankYouFadeBeats);
+        thankYouText.color = color;
+    }
+
     /// <summary>画像の透明度またはディゾルブ進行率を設定します。</summary>
     private void ApplyStill(Image image, ImageDissolveController dissolve, FinaleImageTransition style, float progress)
     {
@@ -266,6 +289,8 @@ public class FinalEventController : MonoBehaviour
         endingStillImage.sprite = timeline.secondStill;
         secondStillDissolve.SetProgress(1f);
         endingStillImage.color = Color.white;
+        // 曲終了後も、最後に評価した文字の表示状態を維持します。
+        EvaluateThankYouText(musicController.CurrentBeatFloat);
         retryButton.gameObject.SetActive(true);
         retryButton.interactable = true;
     }
@@ -293,6 +318,7 @@ public class FinalEventController : MonoBehaviour
         eventStillImage.gameObject.SetActive(false);
         endingStillImage.gameObject.SetActive(false);
         eventText.gameObject.SetActive(false);
+        thankYouText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(true);
         retryButton.interactable = true;
     }

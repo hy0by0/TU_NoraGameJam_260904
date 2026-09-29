@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   musicController: {fileID: 0}
-  enemyRigidbody: {fileID: 8827530453876268739}
   usePlacedPosition: 1
   startPosition: {x: 0, y: 0}
   startTiming:
@@ -149,11 +148,6 @@ MonoBehaviour:
   durationSeconds: 2
   easing: 4
   pingPong: 1
---- !u!50 &8827530453876268739 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8445276719848209571, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
-  m_PrefabInstance: {fileID: 1130990937591341664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2531761872721646835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6047fc5b7d0ad2246a7c1f6c7eb5dd54, type: 3}
+    - target: {fileID: 9132508468409942588, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6047fc5b7d0ad2246a7c1f6c7eb5dd54, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -237,11 +235,6 @@ PrefabInstance:
 --- !u!4 &3766503059176656428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1686578896051772127, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
-  m_PrefabInstance: {fileID: 2531761872721646835}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &6201745226602522704 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8445276719848209571, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
   m_PrefabInstance: {fileID: 2531761872721646835}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7203759709099241923 stripped
@@ -262,7 +255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   musicController: {fileID: 0}
-  enemyRigidbody: {fileID: 6201745226602522704}
   usePlacedPosition: 1
   startPosition: {x: 0, y: 0}
   startTiming:
@@ -357,11 +349,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1686578896051772127, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
   m_PrefabInstance: {fileID: 2699107460627235651}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &5784453166165049312 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8445276719848209571, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
-  m_PrefabInstance: {fileID: 2699107460627235651}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7327183579330979443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4673123754649462064, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
@@ -380,7 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   musicController: {fileID: 0}
-  enemyRigidbody: {fileID: 5784453166165049312}
   usePlacedPosition: 1
   startPosition: {x: 0, y: 0}
   startTiming:
@@ -475,11 +461,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1686578896051772127, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
   m_PrefabInstance: {fileID: 4004142608680439735}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &4801457406121538324 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8445276719848209571, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
-  m_PrefabInstance: {fileID: 4004142608680439735}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8596200946989886087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4673123754649462064, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
@@ -498,7 +479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   musicController: {fileID: 0}
-  enemyRigidbody: {fileID: 4801457406121538324}
   usePlacedPosition: 1
   startPosition: {x: 0, y: 0}
   startTiming:
@@ -606,7 +586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   musicController: {fileID: 0}
-  enemyRigidbody: {fileID: 3816317269496529500}
   usePlacedPosition: 1
   startPosition: {x: 0, y: 0}
   startTiming:
@@ -620,11 +599,6 @@ MonoBehaviour:
   durationSeconds: 2
   easing: 4
   pingPong: 1
---- !u!50 &3816317269496529500 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8445276719848209571, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
-  m_PrefabInstance: {fileID: 4739456110298808063}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6242552760583857184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1686578896051772127, guid: 7092365f0a4b1924caf6195689770a1a, type: 3}
