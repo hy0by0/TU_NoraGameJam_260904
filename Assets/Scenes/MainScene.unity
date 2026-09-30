@@ -9406,7 +9406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialDisplayController
   tutorialTransition: {fileID: 529737778}
-  forTouchMode: 0
+  forTouchMode: 1
 --- !u!114 &529737778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22012,7 +22012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreRankingSender
   boardNo: 1
-  touchBoardNo: 0
+  touchBoardNo: 2
   writeMode: 0
   playerController: {fileID: 1094879443}
   submissionState: 0
@@ -26811,7 +26811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MobileTouchArea
   areaKind: 0
   playerController: {fileID: 1094879443}
-  dragWorldUnitsPerScreen: 8
+  dragWorldUnitsPerScreen: 16
 --- !u!114 &1458116592
 MonoBehaviour:
   m_ObjectHideFlags: 0
